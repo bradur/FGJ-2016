@@ -1,0 +1,1 @@
+# Copy these files to <Unity Installation>\Editor\Data\Resources\ScriptTemplates

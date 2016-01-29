@@ -1,0 +1,24 @@
+﻿// Date   : #CREATIONDATE#
+// Project: #PROJECTNAME#
+
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class #SCRIPTNAME# : MonoBehaviour {
+
+    [SerializeField]
+    private Text txtComponent;
+    [SerializeField]
+    private Color colorVariable;
+    [SerializeField]
+    private Image imgComponent;
+
+    void Start () {
+    
+    }
+
+    void Update () {
+    
+    }
+}
