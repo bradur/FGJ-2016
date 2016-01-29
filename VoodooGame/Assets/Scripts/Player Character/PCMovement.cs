@@ -28,7 +28,7 @@ public class PCMovement : MonoBehaviour {
 
         targetSpeed = new Vector2(speed * move_h, speed * move_v);
 
-        rigidBody2D.AddForce(speedFactor* targetSpeed - rigidBody2D.velocity, ForceMode2D.Impulse);
+        rigidBody2D.AddForce(speedFactor* (targetSpeed - rigidBody2D.velocity), ForceMode2D.Impulse);
     }
 
     void Update () {
