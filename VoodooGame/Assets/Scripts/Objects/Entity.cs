@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class Entity : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> stealItems;
+    private List<Ingredient> stealItems;
 
     [SerializeField]
     private AnimalType animalType;
@@ -118,14 +118,25 @@ public class Entity : MonoBehaviour
         idleMovement = false;
 
         outline.GetComponent<Renderer>().enabled = true;
+        Destroy(gameObject);
     }
 
     public void Steal()
     {
-        foreach (GameObject item in stealItems)
+        foreach (Ingredient item in stealItems)
         {
-            //HUDManager.main.addItemToInventory(item);
+            HUDManager.main.AddWorldDialogIngredient(item, gameObject);
         }
+    }
+
+    public void ShowOutline()
+    {
+        outline.GetComponent<Renderer>().enabled = true;
+    }
+
+    public void HideOutline()
+    {
+        outline.GetComponent<Renderer>().enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -134,12 +145,17 @@ public class Entity : MonoBehaviour
         {
             GetRandomWaypoint();
         }
-        Kill();
+        Steal();
         Debug.Log("Piu!");
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
         Debug.Log("Pam!");
+    }
+
+    public void DeleteStealItems()
+    {
+        stealItems.Clear();
     }
 }

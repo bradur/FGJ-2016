@@ -65,7 +65,7 @@ public class WorldDialog : MonoBehaviour {
         }
     }
 
-    public void AddIngredient(Ingredient ingredient, PickupIngredient pickup)
+    public void AddIngredient(Ingredient ingredient, GameObject pickup = null)
     {
         if (hidden)
         {

@@ -18,7 +18,7 @@ public class InventoryItem : MonoBehaviour {
     private Ingredient ingredient;
     public Ingredient Ingredient { get { return ingredient; } }
 
-    private PickupIngredient pickup;
+    private GameObject pickup;
 
     void Start () {
     
@@ -32,7 +32,15 @@ public class InventoryItem : MonoBehaviour {
     {
         if (pickup != null)
         {
-            Destroy(pickup.gameObject);
+            Entity entity = pickup.GetComponent<Entity>();
+            if (entity != null)
+            {
+                entity.DeleteStealItems();
+            }
+            else
+            {
+                Destroy(pickup.gameObject);
+            }
         }
         Destroy(gameObject);
     }
@@ -50,7 +58,7 @@ public class InventoryItem : MonoBehaviour {
         this.ingredient = ingredient;
     }
 
-    public void Init(Ingredient ingredient, PickupIngredient pickup)
+    public void Init(Ingredient ingredient, GameObject pickup)
     {
         Init(ingredient);
         this.pickup = pickup;
