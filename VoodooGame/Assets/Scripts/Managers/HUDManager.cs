@@ -188,7 +188,7 @@ public class HUDManager : MonoBehaviour
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!GameManager.main.KillMode)
         {
-            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.KillOutline));
+            entities.Where(x => x.Killable).ToList().ForEach(x => x.ShowOutline(GameManager.main.KillOutline));
 
             //activate clicking
             killButtonTxt.text = "Stop the massacre";
@@ -208,7 +208,7 @@ public class HUDManager : MonoBehaviour
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!GameManager.main.StealMode)
         {
-            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.StealOutline));
+            entities.Where(x => x.Stealable).ToList().ForEach(x => x.ShowOutline(GameManager.main.StealOutline));
 
             //activate clicking
             stealButtonTxt.text = "Stop stealing";
@@ -228,7 +228,7 @@ public class HUDManager : MonoBehaviour
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!GameManager.main.BuyMode)
         {
-            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.BuyOutline));
+            entities.Where(x => x.Buyable).ToList().ForEach(x => x.ShowOutline(GameManager.main.BuyOutline));
 
             //activate clicking
             buyButtonTxt.text = "Stop buying";
@@ -248,7 +248,7 @@ public class HUDManager : MonoBehaviour
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!GameManager.main.DigMode)
         {
-            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.DigOutline));
+            entities.Where(x => x.Diggable).ToList().ForEach(x => x.ShowOutline(GameManager.main.DigOutline));
 
             //activate clicking
             digButtonTxt.text = "Stop digging";

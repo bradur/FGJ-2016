@@ -8,11 +8,36 @@ using System.Collections.Generic;
 public class Entity : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("List of items that can be stolen. Use only for humans.")]
     private List<Ingredient> stealItems;
+
+    [SerializeField]
+    [Tooltip("List of items that can be dug from the ground. Use only for ground.")]
+    private List<Ingredient> digItems;
+
+    [SerializeField]
+    [Tooltip("List of items that can be bought. Use only for humans.")]
+    private List<Ingredient> buyItems;
 
     [SerializeField]
     private AnimalType animalType;
     public AnimalType AnimalType { get { return animalType; } }
+
+    [SerializeField]
+    private bool killable;
+    public bool Killable { get { return killable; } }
+
+    [SerializeField]
+    private bool buyable;
+    public bool Buyable { get { return buyable; } }
+
+    [SerializeField]
+    private bool stealable;
+    public bool Stealable { get { return stealable; } }
+
+    [SerializeField]
+    private bool diggable;
+    public bool Diggable { get { return diggable; } }
     
     [SerializeField]
     [Range(0, 3f)]
@@ -20,10 +45,6 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     private bool idleMovement;
-
-    [SerializeField]
-    private bool dead;
-    public bool Dead { get { return dead; } }
 
     private Vector3 velocity = Vector3.zero;
     private Rigidbody2D rigidBody2D;
@@ -65,7 +86,7 @@ public class Entity : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!standStill && idleMovement && !dead)
+        if (!standStill && idleMovement)
         {
             transform.position = Vector3.SmoothDamp(transform.position, currentWaypoint, ref velocity, smoothTime, maxSpeed);
 
@@ -122,7 +143,11 @@ public class Entity : MonoBehaviour
         idleMovement = false;
 
         outline.GetComponent<Renderer>().enabled = true;
+        Vector3 corpsePos = gameObject.transform.position;
         Destroy(gameObject);
+
+        GameObject corpse = Resources.Load<GameObject>("Corpse") as GameObject;
+        Instantiate(corpse, corpsePos, Quaternion.identity);
     }
 
     public void Steal()
@@ -131,6 +156,24 @@ public class Entity : MonoBehaviour
         {
             HUDManager.main.AddWorldDialogIngredient(item, gameObject);
         }
+    }
+
+    public void Dig()
+    {
+        foreach (Ingredient loot in digItems)
+        {
+            PickupIngredient pickup = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
+            pickup = Instantiate(pickup, transform.position, Quaternion.identity) as PickupIngredient;
+            pickup.transform.SetParent(transform.parent, false);
+            pickup.Init(loot);
+        }
+
+        outline.GetComponent<Renderer>().enabled = true;
+        Vector3 corpsePos = gameObject.transform.position;
+        Destroy(gameObject);
+
+        GameObject corpse = Resources.Load<GameObject>("DugGround") as GameObject;
+        Instantiate(corpse, corpsePos, Quaternion.identity);
     }
 
     public void ShowOutline(Material outlineMaterial)
@@ -167,23 +210,29 @@ public class Entity : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (GameManager.main.StealMode)
+        if (GameManager.main.StealMode && stealable)
         {
             Debug.Log("STEAL");
             Steal();
             HUDManager.main.ToggleStealMode();
         }
-        else if (GameManager.main.KillMode)
+        else if (GameManager.main.KillMode && killable)
         {
             Debug.Log("KILL");
             Kill();
             HUDManager.main.ToggleKillMode();
         }
-        else if (GameManager.main.BuyMode)
+        else if (GameManager.main.BuyMode && buyable)
         {
             Debug.Log("Buy");
-            //Kill();
+            //Buy();
             HUDManager.main.ToggleBuyMode();
+        }
+        else if (GameManager.main.DigMode && diggable)
+        {
+            Debug.Log("Dig");
+            Dig();
+            HUDManager.main.ToggleDigMode();
         }
     }
 }
