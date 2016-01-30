@@ -187,7 +187,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stealItems: []
+  digItems: []
+  buyItems: []
   animalType: 3
+  killable: 1
+  buyable: 0
+  stealable: 0
+  diggable: 0
   smoothTime: 0.3
   idleMovement: 1
 --- !u!212 &21249936
