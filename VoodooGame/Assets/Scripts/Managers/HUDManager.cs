@@ -154,6 +154,10 @@ public class HUDManager : MonoBehaviour
     {
         currentWorldDialog.Hide();
     }
+    public void ClearWorldDialog()
+    {
+        currentWorldDialog.Clear();
+    }
 
     public void ShowWorldDialog(string message, Vector3 position, WorldDialogType dialogType)
     {

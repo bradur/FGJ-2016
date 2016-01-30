@@ -90,6 +90,11 @@ public class WorldDialog : MonoBehaviour {
         dialogInventory.Remove(ingredient);
     }
 
+    public void Clear()
+    {
+        dialogInventory.ClearInventory();
+    }
+
     public void Show()
     {
         animator.SetTrigger("Show");
@@ -101,6 +106,7 @@ public class WorldDialog : MonoBehaviour {
         animator.SetTrigger("Hide");
         hidden = true;
         waitForAction = false;
+        Destroy(gameObject); //TODO: Do not destroy, but reinit for different types of dialogs
     }
 
     public void AfterHide()

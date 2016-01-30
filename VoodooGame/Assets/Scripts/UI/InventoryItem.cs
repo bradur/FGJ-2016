@@ -13,9 +13,6 @@ public class InventoryItem : MonoBehaviour {
     private Color colorVariable;
     [SerializeField]
     private Image imgComponent;
-    [SerializeField]
-    [Tooltip("Cost of a shop item")]
-    private float cost;
 
     [SerializeField]
     private Ingredient ingredient;
@@ -50,13 +47,29 @@ public class InventoryItem : MonoBehaviour {
 
     public void Init(Ingredient ingredient)
     {
+        bool buyable = false;
+        if(pickup != null) {
+            Entity pickupEntity = pickup.GetComponent<Entity>();
+            if(pickupEntity != null) {
+                buyable = pickupEntity.Buyable;
+            }
+        }
+
         //imgComponent.sprite = ingredient.Sprite;
-        if (ingredient.AnimalType != AnimalType.None) { 
+        if (ingredient.AnimalType != AnimalType.None) {
             txtComponent.text = ingredient.AnimalType + " " + ingredient.AnimalState;
+            if (buyable)
+            {
+                txtComponent.text += " " + ingredient.Cost + "$";
+            }
         }
         else
         {
             txtComponent.text = ingredient.GatheredState + " " + ingredient.GatheredType;
+            if (buyable)
+            {
+                txtComponent.text += " " + ingredient.Cost + "$";
+            }
         }
         this.ingredient = ingredient;
     }
@@ -76,5 +89,6 @@ public class InventoryItem : MonoBehaviour {
         }
 
         HUDManager.main.HideWorldDialog();
+        HUDManager.main.ClearWorldDialog();
     }
 }
