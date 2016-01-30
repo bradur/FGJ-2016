@@ -16,19 +16,53 @@ public class HomeScreen : MonoBehaviour {
     private Image imgComponent;
 
     [SerializeField]
-    private List<QuestUI> quests;
+    private GameObject panel;
+
+    [SerializeField]
+    private List<Quest> quests;
+
+    [SerializeField]
+    private Text questTitletxt;
+
+    [SerializeField]
+    private Text questStorytxt;
+
+    int questnum = 0;
 
     public void CheckOrStartQuest(bool isComplete)
     {
         if (isComplete)
         {
-            HUDManager.main.SetNextQuest(quests[0].Requirements);
-            txtComponent.text = "Quest complete!";
+            if (questnum > 0)
+            {
+                txtComponent.text = "Quest complete!";
+            }
+            quests.RemoveAt(0);
+            if (quests.Count > 0) {
+                questTitletxt.text = quests[0].Title;
+                questStorytxt.text = quests[0].Description;
+                HUDManager.main.SetNextQuest(quests[0]);
+            }
+            else
+            {
+                txtComponent.text = "The end.";
+            }
+            questnum++;
         }
         else
         {
             txtComponent.text = "Your quest is not yet complete!";
         }
+    }
+
+    public void Show()
+    {
+        panel.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        panel.SetActive(false);
     }
 
     void Start () {
