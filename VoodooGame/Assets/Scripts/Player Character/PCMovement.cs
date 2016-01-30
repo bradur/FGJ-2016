@@ -46,6 +46,11 @@ public class PCMovement : MonoBehaviour {
         }
     }
 
+    public void Stop()
+    {
+        rigidBody2D.velocity = Vector3.zero;
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Home")

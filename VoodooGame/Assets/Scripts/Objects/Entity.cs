@@ -99,6 +99,11 @@ public class Entity : MonoBehaviour
         }
     }
 
+    public void StartMovingAgain()
+    {
+        standStill = false;
+    }
+
     IEnumerator StandStill()
     {
         standStill = true;

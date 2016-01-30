@@ -55,6 +55,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private HomeScreen homeScreen;
 
+    [SerializeField]
+    private AreaTransitionEffect areaTransitionEffect;
+
     int num = 0;
 
     void Awake()
@@ -159,6 +162,11 @@ public class HUDManager : MonoBehaviour
         {
             Debug.Log("No world dialog!!");
         }
+    }
+
+    public void AreaTransition()
+    {
+        areaTransitionEffect.Show();
     }
 
     public void HideWorldDialog()

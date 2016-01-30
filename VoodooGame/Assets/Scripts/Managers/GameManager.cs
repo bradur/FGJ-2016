@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour {
     public bool BuyMode { get; set; }
     public bool DigMode { get; set; }
 
+    private int nextAreaNumber;
+    private Vector3 playerPos;
+
     void Awake()
     {
 
@@ -68,10 +71,24 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    public void OpenArea(int areaNumber)
+    public void SetNextArea(int areaNumber, Vector3 playerpos)
     {
+        nextAreaNumber = areaNumber;
+        this.playerPos = playerpos;
+    }
+
+    public void OpenNextArea()
+    {
+        player.transform.position = this.playerPos;
         currentArea.SetActive(false);
-        currentArea = areas[areaNumber];
+        currentArea = areas[nextAreaNumber];
+        foreach (Transform child in currentArea.transform)
+        {
+            if (child.GetComponent<Entity>() != null)
+            {
+                child.GetComponent<Entity>().StartMovingAgain();
+            }
+        }
         currentArea.SetActive(true);
     }
 
