@@ -64,7 +64,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void AddItem(Ingredient itemToAdd, PickupIngredient pickup)
+    public void AddItem(Ingredient itemToAdd, GameObject pickup)
     {
         if (items.Count >= inventoryLimit)
         {

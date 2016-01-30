@@ -34,7 +34,7 @@ public class PickupIngredient : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            HUDManager.main.AddWorldDialogIngredient(ingredient, this);
+            HUDManager.main.AddWorldDialogIngredient(ingredient, gameObject);
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class HUDManager : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class HUDManager : MonoBehaviour
     private WorldDialog currentWorldDialog;
 
     private List<Dialog> dialogList = null;
+
+    private bool stealMode = false;
+
+    [SerializeField]
+    private Text stealButtonTxt;
 
     int num = 0;
 
@@ -62,7 +68,7 @@ public class HUDManager : MonoBehaviour
     }
 
 
-    public void AddWorldDialogIngredient(Ingredient ingredientToAdd, PickupIngredient pickup)
+    public void AddWorldDialogIngredient(Ingredient ingredientToAdd, GameObject pickup = null)
     {
         if (currentWorldDialog == null)
         {
@@ -162,5 +168,23 @@ public class HUDManager : MonoBehaviour
     public List<InventoryItem> GetInventoryContents()
     {
         return inventoryManager.GetInventoryContents();
+    }
+
+    public void ActivateStealMode()
+    {
+        List<Entity> entities = FindObjectsOfType<Entity>().ToList();
+        if (!stealMode)
+        {
+            entities.ForEach(x => x.ShowOutline());
+
+            //activate clicking
+            stealButtonTxt.text = "Stop stealing";
+        }
+        else
+        {
+            entities.ForEach(x => x.HideOutline());
+            stealButtonTxt.text = "Steal";
+        }
+        stealMode = !stealMode;
     }
 }
