@@ -46,6 +46,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private Text buyButtonTxt;
 
+    [SerializeField]
     private QuestUI questUI;
 
     int num = 0;
