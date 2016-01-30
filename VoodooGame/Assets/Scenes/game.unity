@@ -117,6 +117,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 897000033}
   poolSize: 10
   dialogPrefab: {fileID: 11457986, guid: dd0b874c473ed4c4cacfa6b53e37e1d3, type: 2}
+  worldDialogPrefab: {fileID: 0}
 --- !u!4 &1629154
 Transform:
   m_ObjectHideFlags: 0
@@ -908,7 +909,7 @@ GameObject:
   - 4: {fileID: 1649560023}
   - 114: {fileID: 1649560022}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,9 +923,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1649560021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a8f41cd3fb56c4381c029e376cc222, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b089a9cd917f54ca8a3ec4013c0186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupKey: 32
+  killOutline: {fileID: 0}
+  stealOutline: {fileID: 0}
 --- !u!4 &1649560023
 Transform:
   m_ObjectHideFlags: 0
