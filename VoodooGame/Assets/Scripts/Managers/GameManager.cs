@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
     private Material stealOutline;
     public Material StealOutline { get { return stealOutline; } }
 
+    public bool StealMode { get; set; }
+    public bool KillMode { get; set; }
+
     void Awake()
     {
 

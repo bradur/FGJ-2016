@@ -16,8 +16,8 @@ public class PickupIngredient : MonoBehaviour
     public void Init(Ingredient ingredient)
     {
         this.ingredient = ingredient;
-        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = ingredient.Sprite;
+        //SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //spriteRenderer.sprite = ingredient.Sprite;
     }
 
     void Update()

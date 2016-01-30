@@ -96,9 +96,9 @@ public class Entity : MonoBehaviour
         string blood = animalType.ToString() + "Blood";
         string bone = animalType.ToString() + "Bone";
 
-        Ingredient meatIngredient = Resources.Load<Ingredient>(meat) as Ingredient;
-        Ingredient bloodIngredient = Resources.Load<Ingredient>(blood) as Ingredient;
-        Ingredient boneIngredient = Resources.Load<Ingredient>(bone) as Ingredient;
+        Ingredient meatIngredient = Resources.Load<Ingredient>("Ingredients/"+meat) as Ingredient;
+        Ingredient bloodIngredient = Resources.Load<Ingredient>("Ingredients/" + blood) as Ingredient;
+        Ingredient boneIngredient = Resources.Load<Ingredient>("Ingredients/" + bone) as Ingredient;
 
         PickupIngredient meatPI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
         meatPI = Instantiate(meatPI, transform.position, Quaternion.identity) as PickupIngredient;
@@ -147,7 +147,7 @@ public class Entity : MonoBehaviour
         {
             GetRandomWaypoint();
         }
-        Steal();
+        //Steal();
         Debug.Log("Piu!");
     }
 
@@ -159,5 +159,19 @@ public class Entity : MonoBehaviour
     public void DeleteStealItems()
     {
         stealItems.Clear();
+    }
+
+    void OnMouseUp()
+    {
+        if (GameManager.main.StealMode)
+        {
+            Debug.Log("STEAL");
+            Steal();
+        }
+        else if (GameManager.main.KillMode)
+        {
+            Debug.Log("KILL");
+            Kill();
+        }
     }
 }

@@ -34,9 +34,6 @@ public class HUDManager : MonoBehaviour
 
     private List<Dialog> dialogList = null;
 
-    private bool stealMode = false;
-    private bool killMode = false;
-
     [SerializeField]
     private Text stealButtonTxt;
 
@@ -176,8 +173,13 @@ public class HUDManager : MonoBehaviour
 
     public void ActivateKillMode()
     {
+        if (GameManager.main.StealMode)
+        {
+            ActivateStealMode(); //toggle steal mode off
+        }
+
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
-        if (!killMode)
+        if (!GameManager.main.KillMode)
         {
             entities.ForEach(x => x.ShowOutline(GameManager.main.KillOutline));
 
@@ -189,13 +191,18 @@ public class HUDManager : MonoBehaviour
             entities.ForEach(x => x.HideOutline());
             killButtonTxt.text = "Kill";
         }
-        killMode = !killMode;
+        GameManager.main.KillMode = !GameManager.main.KillMode;
     }
 
     public void ActivateStealMode()
     {
+        if (GameManager.main.KillMode)
+        {
+            ActivateKillMode(); //toggle kill mode off
+        }
+        
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
-        if (!stealMode)
+        if (!GameManager.main.StealMode)
         {
             entities.ForEach(x => x.ShowOutline(GameManager.main.StealOutline));
 
@@ -207,6 +214,6 @@ public class HUDManager : MonoBehaviour
             entities.ForEach(x => x.HideOutline());
             stealButtonTxt.text = "Steal";
         }
-        stealMode = !stealMode;
+        GameManager.main.StealMode = !GameManager.main.StealMode;
     }
 }
