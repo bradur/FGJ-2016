@@ -72,7 +72,9 @@ public class InventoryItem : MonoBehaviour {
             GameManager.main.Gold -= ingredient.Cost;
             HUDManager.main.AddToInventory(ingredient);
             HUDManager.main.RemoveWorldDialogIngredient(ingredient);
-            HUDManager.main.HideWorldDialog();
+            pickup.GetComponent<Entity>().DeleteBuyItem(ingredient);
         }
+
+        HUDManager.main.HideWorldDialog();
     }
 }

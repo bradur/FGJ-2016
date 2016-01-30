@@ -4,6 +4,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Entity : MonoBehaviour
 {
@@ -242,5 +243,10 @@ public class Entity : MonoBehaviour
             Dig();
             HUDManager.main.ToggleDigMode();
         }
+    }
+
+    public void DeleteBuyItem(Ingredient ingredient)
+    {
+        buyItems.Remove(ingredient);
     }
 }
