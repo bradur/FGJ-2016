@@ -129,9 +129,11 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public void ShowOutline()
+    public void ShowOutline(Material outlineMaterial)
     {
-        outline.GetComponent<Renderer>().enabled = true;
+        Renderer renderer = outline.GetComponent<Renderer>();
+        renderer.material = outlineMaterial;
+        renderer.enabled = true;
     }
 
     public void HideOutline()

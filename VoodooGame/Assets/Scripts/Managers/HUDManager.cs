@@ -35,9 +35,13 @@ public class HUDManager : MonoBehaviour
     private List<Dialog> dialogList = null;
 
     private bool stealMode = false;
+    private bool killMode = false;
 
     [SerializeField]
     private Text stealButtonTxt;
+
+    [SerializeField]
+    private Text killButtonTxt;
 
     int num = 0;
 
@@ -170,12 +174,30 @@ public class HUDManager : MonoBehaviour
         return inventoryManager.GetInventoryContents();
     }
 
+    public void ActivateKillMode()
+    {
+        List<Entity> entities = FindObjectsOfType<Entity>().ToList();
+        if (!killMode)
+        {
+            entities.ForEach(x => x.ShowOutline(GameManager.main.KillOutline));
+
+            //activate clicking
+            killButtonTxt.text = "Stop the massacre";
+        }
+        else
+        {
+            entities.ForEach(x => x.HideOutline());
+            killButtonTxt.text = "Kill";
+        }
+        killMode = !killMode;
+    }
+
     public void ActivateStealMode()
     {
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!stealMode)
         {
-            entities.ForEach(x => x.ShowOutline());
+            entities.ForEach(x => x.ShowOutline(GameManager.main.StealOutline));
 
             //activate clicking
             stealButtonTxt.text = "Stop stealing";
