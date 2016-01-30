@@ -22,6 +22,10 @@ public class Ingredient : MonoBehaviour {
     private GatheredState gatheredState;
     public GatheredState GatheredState { get { return gatheredState; } }
 
+    [SerializeField]
+    private Sprite sprite;
+    public Sprite Sprite { get { return sprite; } }
+
     void Start () {
     
     }
