@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     private int vertical_padding = 3;
     private int gridMemberSize = 100;
 
-    private List<Ingredient> items = new List<Ingredient>();
+    private List<InventoryItem> items = new List<InventoryItem>();
 
     [SerializeField]
     private InventoryItem inventoryItemPrefab;
@@ -26,6 +26,11 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField]
     private int inventoryLimit = 9;
+
+    private int running = 0;
+
+    [SerializeField]
+    private WorldDialog worldDialog;
 
     public void AddItem(Ingredient itemToAdd)
     {
@@ -53,18 +58,76 @@ public class InventoryManager : MonoBehaviour
                 Quaternion.identity) as InventoryItem;
             newItem.transform.SetParent(inventoryParent, false);
             newItem.Init(itemToAdd);
-            items.Add(itemToAdd);
+            items.Add(newItem);
         }
 
+    }
+
+
+    public void AddItem(Ingredient itemToAdd, PickupIngredient pickup)
+    {
+        if (items.Count >= inventoryLimit)
+        {
+            // inventory is full!
+        }
+        else
+        {
+
+            int factor = items.Count;
+            if (factor > 2)
+            {
+                level = factor / 3;
+                factor = factor % 3;
+            }
+
+            InventoryItem newItem = Instantiate(
+                inventoryItemPrefab,
+                new Vector3(
+                    factor * gridMemberSize + factor * horizontal_padding + border_padding,
+                    -(level * gridMemberSize + level * vertical_padding + border_padding),
+                    0f
+                ),
+                Quaternion.identity) as InventoryItem;
+            newItem.transform.SetParent(inventoryParent, false);
+            newItem.Init(itemToAdd, pickup);
+            newItem.name = "item "+ running++;
+            items.Add(newItem);
+        }
+
+    }
+
+    public void Remove(InventoryItem ingredientToRemove)
+    {
+        items.Remove(ingredientToRemove);
+        if (worldDialog != null && items.Count == 0)
+        {
+            worldDialog.Hide();
+        }
+    }
+
+
+    public void Remove(Ingredient ingredientToRemove)
+    {
+        for(int i = 0; i < items.Count; i++){
+            InventoryItem item = items[i];
+            if (item.Ingredient == ingredientToRemove)
+            {
+                Remove(item);
+                item.Kill();
+            }
+        }
     }
 
     public void ClearInventory()
     {
         // animate?
+        for (int i = 0; i < items.Count; i++) {
+            items[i].Kill();
+        }
         items.Clear();
     }
 
-    public List<Ingredient> GetInventoryContents()
+    public List<InventoryItem> GetInventoryContents()
     {
         return items;
     }

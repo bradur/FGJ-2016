@@ -18,12 +18,23 @@ public class InventoryItem : MonoBehaviour {
     private Ingredient ingredient;
     public Ingredient Ingredient { get { return ingredient; } }
 
+    private PickupIngredient pickup;
+
     void Start () {
     
     }
 
     void Update () {
     
+    }
+
+    public void Kill()
+    {
+        if (pickup != null)
+        {
+            Destroy(pickup.gameObject);
+        }
+        Destroy(gameObject);
     }
 
     public void Init(Ingredient ingredient)
@@ -39,4 +50,9 @@ public class InventoryItem : MonoBehaviour {
         this.ingredient = ingredient;
     }
 
+    public void Init(Ingredient ingredient, PickupIngredient pickup)
+    {
+        Init(ingredient);
+        this.pickup = pickup;
+    }
 }

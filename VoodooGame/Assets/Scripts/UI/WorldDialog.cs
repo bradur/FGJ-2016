@@ -21,11 +21,11 @@ public class WorldDialog : MonoBehaviour {
     private Animator animator;
 
     WorldDialogType dialogType = WorldDialogType.Message;
-    List<Ingredient> ingredients;
     private bool waitForAction = false;
+    private bool hidden = false;
 
     [SerializeField]
-    private WorldDialogIngredient worldDialogIngredientPrefab;
+    private InventoryManager dialogInventory;
 
     void Start () {
     
@@ -36,11 +36,16 @@ public class WorldDialog : MonoBehaviour {
         {
             if (Input.GetKey(GameManager.main.PickupKey))
             {
-                foreach (Ingredient ingredient in ingredients)
+                List<InventoryItem> items = dialogInventory.GetInventoryContents();
+                for (int i = 0; i < items.Count; i++)
                 {
-                    HUDManager.main.AddToInventory(ingredient);
+                    InventoryItem item = items[i];
+                    HUDManager.main.AddToInventory(item.Ingredient);
                 }
+                dialogInventory.ClearInventory();
+                Hide();
             }
+            
         }
     }
 
@@ -51,6 +56,7 @@ public class WorldDialog : MonoBehaviour {
 
     public void Init(string message, WorldDialogType dialogType)
     {
+        Show();
         txtComponent.text = message;
         this.dialogType = dialogType;
         if (this.dialogType == WorldDialogType.ItemPickup)
@@ -59,22 +65,34 @@ public class WorldDialog : MonoBehaviour {
         }
     }
 
-    public void AddIngredient(Ingredient ingredient)
+    public void AddIngredient(Ingredient ingredient, PickupIngredient pickup)
     {
-        ingredients.Add(ingredient);
-        WorldDialogIngredient worldDialogIngredient = Instantiate<WorldDialogIngredient>(worldDialogIngredientPrefab) as WorldDialogIngredient;
-        //worldDialogIngredient.transform.position = 
-        worldDialogIngredient.transform.SetParent(transform, false);
+        if (hidden)
+        {
+            Show();
+            if (this.dialogType == WorldDialogType.ItemPickup)
+            {
+                waitForAction = true;
+            }
+        }
+        dialogInventory.AddItem(ingredient, pickup);
+    }
+
+    public void RemoveIngredient(Ingredient ingredient)
+    {
+        dialogInventory.Remove(ingredient);
     }
 
     public void Show()
     {
         animator.SetTrigger("Show");
+        hidden = false;
     }
 
     public void Hide()
     {
         animator.SetTrigger("Hide");
+        hidden = true;
         waitForAction = false;
     }
 

@@ -34,7 +34,7 @@ public class PickupIngredient : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            //HUDManager.main.addPopupIngredient(ingredient);
+            HUDManager.main.AddWorldDialogIngredient(ingredient, this);
         }
     }
 
@@ -42,7 +42,8 @@ public class PickupIngredient : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            //HUDManager.main.removePopupIngredient(ingredient);
+            Debug.Log("PIM!");
+            HUDManager.main.RemoveWorldDialogIngredient(ingredient);
         }
     }
 }

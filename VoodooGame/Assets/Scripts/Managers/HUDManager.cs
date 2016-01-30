@@ -29,6 +29,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private WorldDialog worldDialogPrefab;
 
+    private WorldDialog currentWorldDialog;
+
     private List<Dialog> dialogList = null;
 
     int num = 0;
@@ -57,6 +59,33 @@ public class HUDManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+
+    public void AddWorldDialogIngredient(Ingredient ingredientToAdd, PickupIngredient pickup)
+    {
+        if (currentWorldDialog == null)
+        {
+            currentWorldDialog = Instantiate<WorldDialog>(worldDialogPrefab) as WorldDialog;
+            currentWorldDialog.transform.SetParent(worldParent, false);
+            currentWorldDialog.Init(
+                "Press " + GameManager.main.PickupKey + " to pick up the items!",
+                WorldDialogType.ItemPickup
+            );
+        }
+        currentWorldDialog.AddIngredient(ingredientToAdd, pickup);
+    }
+
+    public void RemoveWorldDialogIngredient(Ingredient ingredientToRemove)
+    {
+        if (currentWorldDialog != null)
+        {
+            currentWorldDialog.RemoveIngredient(ingredientToRemove);
+        }
+        else
+        {
+            Debug.Log("No world dialog!!");
+        }
     }
 
     public void ShowWorldDialog(string message, Vector3 position, WorldDialogType dialogType)
@@ -130,7 +159,7 @@ public class HUDManager : MonoBehaviour
         inventoryManager.AddItem(ingredient);
     }
 
-    public List<Ingredient> GetInventoryContents()
+    public List<InventoryItem> GetInventoryContents()
     {
         return inventoryManager.GetInventoryContents();
     }

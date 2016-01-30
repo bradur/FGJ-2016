@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private KeyCode pickupKey = KeyCode.Space;
-    public KeyCode PickupKey { get { return PickupKey; } }
+    public KeyCode PickupKey { get { return pickupKey; } }
 
     [SerializeField]
     private Material killOutline;
