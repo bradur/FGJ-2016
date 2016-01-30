@@ -188,6 +188,8 @@ MonoBehaviour:
   colorVariable: {r: 0, g: 0, b: 0, a: 0}
   imgComponent: {fileID: 11467532}
   checkMark: {fileID: 11451994}
+  itemSprite: {fileID: 11401304}
+  checkBox: {fileID: 11475164}
 --- !u!114 &11467532
 MonoBehaviour:
   m_ObjectHideFlags: 1

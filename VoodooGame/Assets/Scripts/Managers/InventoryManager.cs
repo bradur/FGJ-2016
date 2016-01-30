@@ -90,7 +90,7 @@ public class InventoryManager : MonoBehaviour
                 Quaternion.identity) as InventoryItem;
             newItem.transform.SetParent(inventoryParent, false);
             newItem.Init(itemToAdd, pickup);
-            newItem.name = "item "+ running++;
+            newItem.name = "item " + running++;
             items.Add(newItem);
 
             if (!isButton)
@@ -110,10 +110,40 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void Show()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<Image>() != null)
+            {
+                child.GetComponent<Image>().enabled = true;
+            }
+            else if (child.GetComponent<Text>() != null)
+            {
+                child.GetComponent<Text>().enabled = true;
+            }
+        }
+    }
+
+    public void Hide()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<Image>() != null)
+            {
+                child.GetComponent<Image>().enabled = false;
+            }
+            else if (child.GetComponent<Text>() != null)
+            {
+                child.GetComponent<Text>().enabled = false;
+            }
+        }
+    }
 
     public void Remove(Ingredient ingredientToRemove)
     {
-        for(int i = 0; i < items.Count; i++){
+        for (int i = 0; i < items.Count; i++)
+        {
             InventoryItem item = items[i];
             if (item.Ingredient == ingredientToRemove)
             {
@@ -126,7 +156,8 @@ public class InventoryManager : MonoBehaviour
     public void ClearInventory()
     {
         // animate?
-        for (int i = 0; i < items.Count; i++) {
+        for (int i = 0; i < items.Count; i++)
+        {
             items[i].Kill();
         }
         items.Clear();

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class QuestUI : MonoBehaviour {
+public class QuestUI : MonoBehaviour
+{
 
     [SerializeField]
     private Text txtComponent;
@@ -14,10 +15,6 @@ public class QuestUI : MonoBehaviour {
     private Color colorVariable;
     [SerializeField]
     private Image imgComponent;
-
-    [SerializeField]
-    private List<QuestRequirement> requirements;
-    public List<QuestRequirement> Requirements { get { return requirements; } }
 
     [SerializeField]
     private QuestItem questItemPrefab;
@@ -60,14 +57,15 @@ public class QuestUI : MonoBehaviour {
         }
     }
 
-    public void Init(List<QuestRequirement> reqs)
+    public void Init(Quest quest)
     {
         int level = 0;
         float step = -80f;
-        foreach(QuestRequirement qr in reqs){
+        foreach (QuestRequirement qr in quest.Requirements)
+        {
             QuestItem qi = Instantiate<QuestItem>(questItemPrefab) as QuestItem;
             qi.Init(qr);
-            qi.transform.position = new Vector3(0f, level*step, 0f);
+            qi.transform.position = new Vector3(0f, level * step, 0f);
             qi.transform.SetParent(questItemContainer, false);
             level++;
         }
@@ -95,19 +93,56 @@ public class QuestUI : MonoBehaviour {
         {
             if (!questItemContainer.GetChild(i).GetComponent<QuestItem>().IsChecked)
             {
-                Debug.Log(questItemContainer.GetChild(i).GetComponent<QuestItem>().name + " IS NOT COMPLETE!");
                 return false;
             }
         }
         return true;
     }
 
-    void Start () {
-        Init(requirements);
+
+    public void Show()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<Image>() != null)
+            {
+                child.GetComponent<Image>().enabled = true;
+            }
+            else if (child.GetComponent<Text>() != null)
+            {
+                child.GetComponent<Text>().enabled = true;
+            }
+            for (int i = 0; i < questItemContainer.childCount; i++)
+            {
+                questItemContainer.GetChild(i).GetComponent<QuestItem>().Show();
+            }
+        }
+        txtComponent.enabled = true;
     }
 
-    void Update () {
-    
+    public void Hide()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<Image>() != null)
+            {
+                child.GetComponent<Image>().enabled = false;
+            }
+            else if (child.GetComponent<Text>() != null)
+            {
+                child.GetComponent<Text>().enabled = false;
+            }
+            for (int i = 0; i < questItemContainer.childCount; i++)
+            {
+                questItemContainer.GetChild(i).GetComponent<QuestItem>().Hide();
+            }
+        }
+        txtComponent.enabled = false;
+    }
+
+    void Update()
+    {
+
     }
 
 

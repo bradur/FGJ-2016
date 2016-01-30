@@ -21,6 +21,12 @@ public class QuestItem : MonoBehaviour
     [SerializeField]
     private Image checkMark;
 
+    [SerializeField]
+    private Image itemSprite;
+
+    [SerializeField]
+    private Image checkBox;
+
     private bool isChecked = false;
     public bool IsChecked { get { return isChecked; } }
 
@@ -43,7 +49,26 @@ public class QuestItem : MonoBehaviour
 
     public void Kill()
     {
+        Debug.Log("Kill questlog!");
         Destroy(gameObject);
+    }
+
+    public void Hide()
+    {
+        txtComponent.enabled = false;
+        imgComponent.enabled = false;
+        checkMark.enabled = false;
+        itemSprite.enabled = false;
+        checkBox.enabled = false;
+    }
+
+    public void Show()
+    {
+        txtComponent.enabled = true;
+        imgComponent.enabled = true;
+        checkMark.enabled = isChecked;
+        itemSprite.enabled = true;
+        checkBox.enabled = true;
     }
 
     void Start()

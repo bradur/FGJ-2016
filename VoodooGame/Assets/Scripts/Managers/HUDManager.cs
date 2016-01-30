@@ -86,28 +86,28 @@ public class HUDManager : MonoBehaviour
 
     public void OpenHomeScreen()
     {
-        homeScreen.gameObject.SetActive(true);
+        homeScreen.Show();
         homeScreen.CheckOrStartQuest(questUI.QuestComplete());
-        questUI.gameObject.SetActive(false);
+        questUI.Hide();
         buttonContainer.gameObject.SetActive(false);
         worldParent.gameObject.SetActive(false);
-        inventoryManager.gameObject.SetActive(false);
+        inventoryManager.Hide();
     }
 
     public void CloseHomeScreen()
     {
-        homeScreen.gameObject.SetActive(false);
-        questUI.gameObject.SetActive(true);
+        homeScreen.Hide();
+        questUI.Show();
         buttonContainer.gameObject.SetActive(true);
         worldParent.gameObject.SetActive(true);
-        inventoryManager.gameObject.SetActive(true);
+        inventoryManager.Show();
     }
 
-    public void SetNextQuest(List<QuestRequirement> requirements)
+    public void SetNextQuest(Quest quest)
     {
         questUI.Clear();
         inventoryManager.ClearInventory();
-        questUI.Init(requirements);
+        questUI.Init(quest);
     }
 
     public void AddWorldDialogIngredient(Ingredient ingredientToAdd, GameObject pickup = null)
