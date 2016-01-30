@@ -21,6 +21,10 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private bool idleMovement;
 
+    [SerializeField]
+    private bool dead;
+    public bool Dead { get { return dead; } }
+
     private Vector3 velocity = Vector3.zero;
     private Rigidbody2D rigidBody2D;
     private List<Vector3> waypoints;
@@ -61,7 +65,7 @@ public class Entity : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!standStill && idleMovement)
+        if (!standStill && idleMovement && !dead)
         {
             transform.position = Vector3.SmoothDamp(transform.position, currentWaypoint, ref velocity, smoothTime, maxSpeed);
 
@@ -167,11 +171,19 @@ public class Entity : MonoBehaviour
         {
             Debug.Log("STEAL");
             Steal();
+            HUDManager.main.ToggleStealMode();
         }
         else if (GameManager.main.KillMode)
         {
             Debug.Log("KILL");
             Kill();
+            HUDManager.main.ToggleKillMode();
+        }
+        else if (GameManager.main.BuyMode)
+        {
+            Debug.Log("Buy");
+            //Kill();
+            HUDManager.main.ToggleBuyMode();
         }
     }
 }

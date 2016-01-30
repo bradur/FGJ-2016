@@ -40,6 +40,12 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private Text killButtonTxt;
 
+    [SerializeField]
+    private Text digButtonTxt;
+
+    [SerializeField]
+    private Text buyButtonTxt;
+
     int num = 0;
 
     void Awake()
@@ -171,17 +177,14 @@ public class HUDManager : MonoBehaviour
         return inventoryManager.GetInventoryContents();
     }
 
-    public void ActivateKillMode()
+    public void ToggleKillMode()
     {
-        if (GameManager.main.StealMode)
-        {
-            ActivateStealMode(); //toggle steal mode off
-        }
+        DeactivateModes("Kill");
 
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!GameManager.main.KillMode)
         {
-            entities.ForEach(x => x.ShowOutline(GameManager.main.KillOutline));
+            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.KillOutline));
 
             //activate clicking
             killButtonTxt.text = "Stop the massacre";
@@ -194,17 +197,14 @@ public class HUDManager : MonoBehaviour
         GameManager.main.KillMode = !GameManager.main.KillMode;
     }
 
-    public void ActivateStealMode()
+    public void ToggleStealMode()
     {
-        if (GameManager.main.KillMode)
-        {
-            ActivateKillMode(); //toggle kill mode off
-        }
-        
+        DeactivateModes("Steal");
+
         List<Entity> entities = FindObjectsOfType<Entity>().ToList();
         if (!GameManager.main.StealMode)
         {
-            entities.ForEach(x => x.ShowOutline(GameManager.main.StealOutline));
+            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.StealOutline));
 
             //activate clicking
             stealButtonTxt.text = "Stop stealing";
@@ -215,5 +215,66 @@ public class HUDManager : MonoBehaviour
             stealButtonTxt.text = "Steal";
         }
         GameManager.main.StealMode = !GameManager.main.StealMode;
+    }
+
+    public void ToggleBuyMode()
+    {
+        DeactivateModes("Buy");
+
+        List<Entity> entities = FindObjectsOfType<Entity>().ToList();
+        if (!GameManager.main.BuyMode)
+        {
+            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.BuyOutline));
+
+            //activate clicking
+            buyButtonTxt.text = "Stop buying";
+        }
+        else
+        {
+            entities.ForEach(x => x.HideOutline());
+            buyButtonTxt.text = "Buy";
+        }
+        GameManager.main.BuyMode = !GameManager.main.BuyMode;
+    }
+
+    public void ToggleDigMode()
+    {
+        DeactivateModes("Dig");
+
+        List<Entity> entities = FindObjectsOfType<Entity>().ToList();
+        if (!GameManager.main.DigMode)
+        {
+            entities.Where(x => !x.Dead).ToList().ForEach(x => x.ShowOutline(GameManager.main.DigOutline));
+
+            //activate clicking
+            digButtonTxt.text = "Stop digging";
+        }
+        else
+        {
+            entities.ForEach(x => x.HideOutline());
+            digButtonTxt.text = "Dig";
+        }
+        GameManager.main.DigMode = !GameManager.main.DigMode;
+    }
+
+    //toggles off all the modes that are on except nextMode
+    private void DeactivateModes(string nextMode)
+    {
+        if (nextMode != "Buy" && GameManager.main.BuyMode)
+        {
+            ToggleBuyMode();
+        }
+        if (nextMode != "Steal" && GameManager.main.StealMode)
+        {
+            ToggleStealMode();
+        }
+        if (nextMode != "Kill" && GameManager.main.KillMode)
+        {
+            ToggleKillMode();
+        }
+        if (nextMode != "Dig" && GameManager.main.DigMode)
+        {
+            ToggleDigMode();
+        }
     }
 }

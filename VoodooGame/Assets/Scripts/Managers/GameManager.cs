@@ -20,8 +20,18 @@ public class GameManager : MonoBehaviour {
     private Material stealOutline;
     public Material StealOutline { get { return stealOutline; } }
 
+    [SerializeField]
+    private Material buyOutline;
+    public Material BuyOutline { get { return buyOutline; } }
+
+    [SerializeField]
+    private Material digOutline;
+    public Material DigOutline { get { return digOutline; } }
+
     public bool StealMode { get; set; }
     public bool KillMode { get; set; }
+    public bool BuyMode { get; set; }
+    public bool DigMode { get; set; }
 
     void Awake()
     {
