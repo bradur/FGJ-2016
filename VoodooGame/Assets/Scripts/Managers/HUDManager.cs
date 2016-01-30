@@ -4,19 +4,30 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
-public class HUDManager : MonoBehaviour {
+public class HUDManager : MonoBehaviour
+{
 
     public static HUDManager main;
 
     [SerializeField]
-    private Text txtComponent;
+    private Transform screenParent;
     [SerializeField]
-    private Color colorVariable;
-    [SerializeField]
-    private Image imgComponent;
+    private Transform worldParent;
 
-    void Awake ()
+    [SerializeField]
+    [Range(10, 50)]
+    private int poolSize = 10;
+
+    [SerializeField]
+    private Dialog dialogPrefab;
+
+    private List<Dialog> dialogList = null;
+
+    int num = 0;
+
+    void Awake()
     {
 
         if (GameObject.FindGameObjectsWithTag("HUDManager").Length > 0)
@@ -32,11 +43,83 @@ public class HUDManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start () {
-    
+    void Start()
+    {
+
     }
 
-    void Update () {
-    
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            if (dialogList == null)
+            {
+                InitDialogPool(poolSize, dialogPrefab);
+            }
+            ShowDialog("yeah" + num++, Vector3.zero, DialogType.SimpleDialog);
+        }
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            ClearPool();
+        }
+
+    }
+
+    public void ShowDialog(string message, Vector3 position, DialogType dialogType)
+    {
+        Dialog dialog = GetDialog();
+        dialog.gameObject.SetActive(true);
+        dialog.Show(message, position, transform, dialogType);
+    }
+
+    private void InitDialogPool(int size, Dialog dialogPrefab)
+    {
+        dialogList = new List<Dialog>();
+        for (int i = 0; i < size; i++)
+        {
+            Dialog dialog = Instantiate(dialogPrefab);
+            dialog.gameObject.transform.SetParent(screenParent, false);
+            dialogList.Add(dialog);
+        }
+    }
+
+    public Dialog GetDialog()
+    {
+        if (dialogList.Count > 0)
+        {
+            Dialog dialog = dialogList[0];
+            dialogList.RemoveAt(0);
+            return dialog;
+        }
+        return null;
+    }
+
+    public void DestroyDialog(Dialog dialog)
+    {
+        dialogList.Add(dialog);
+    }
+
+    public void ClearPool()
+    {
+        for (int i = dialogList.Count - 1; i < 0; i--)
+        {
+            dialogList[i].Clear();
+        }
+        foreach (Transform child in screenParent)
+        {
+            print(child.name);
+            if (child.GetComponent<Dialog>() != null)
+            {
+                
+                child.GetComponent<Dialog>().Clear();
+            }
+        }
+        foreach (Transform child in worldParent)
+        {
+            if (child.GetComponent<Dialog>() != null)
+            {
+                child.GetComponent<Dialog>().Clear();
+            }
+        }
     }
 }
