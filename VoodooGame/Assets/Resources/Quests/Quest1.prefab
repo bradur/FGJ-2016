@@ -49,6 +49,7 @@ MonoBehaviour:
 
 
     And make it quick!'
+  endDescription: The meat was manageable. Next time be faster!
   requirements:
   - {fileID: 11445398, guid: c092d80629510c543ab9f6a187fb5715, type: 2}
 --- !u!1001 &100100000
@@ -87,6 +88,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: title
       value: Mundane rituals
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endDescription
+      value: The meat was manageable. Next time be faster!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

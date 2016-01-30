@@ -17,6 +17,11 @@ public class Quest : MonoBehaviour {
     public string Description { get { return description; } }
 
     [SerializeField]
+    [TextAreaAttribute(10, 4)]
+    private string endDescription;
+    public string EndDescription { get { return endDescription; } }
+
+    [SerializeField]
     private List<QuestRequirement> requirements;
     public List<QuestRequirement> Requirements { get { return requirements; } }
 

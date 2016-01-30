@@ -44,6 +44,8 @@ MonoBehaviour:
     greater concentration, there is a blue flower in the forest nearby which helps
     a lot if you made a infusion for it. Go gather it, you cannot miss it, it\u2019s
     the only blue thing over there.\n\nAnd don't wander around!"
+  endDescription: Flower was barely blue. Do you not have eyes to see? Such bad apprentice
+    I have!
   requirements:
   - {fileID: 11445398, guid: 55ddcb3a755c57641b336dcd44453db6, type: 2}
 --- !u!1001 &100100000
@@ -77,6 +79,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: title
       value: Inspiration material
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endDescription
+      value: Flower was barely blue. Do you not have eyes to see? Such bad apprentice
+        I have!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
