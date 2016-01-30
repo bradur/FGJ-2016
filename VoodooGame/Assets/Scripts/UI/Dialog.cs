@@ -18,15 +18,15 @@ public class Dialog : MonoBehaviour {
 
     public void Clear()
     {
-        Hide();
-    }
-
-    public void FinishedHide()
-    {
         HUDManager.main.DestroyDialog(this);
         txtComponent.text = "";
         transform.position = Vector3.zero;
         gameObject.SetActive(false);
+    }
+
+    public void FinishedHide()
+    {
+
     }
 
     public void Show(string message, Vector3 position, Transform parent, DialogType dialogType)

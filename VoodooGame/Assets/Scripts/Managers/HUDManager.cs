@@ -17,11 +17,17 @@ public class HUDManager : MonoBehaviour
     private Transform worldParent;
 
     [SerializeField]
+    private InventoryManager inventoryManager;
+
+    [SerializeField]
     [Range(10, 50)]
     private int poolSize = 10;
 
     [SerializeField]
     private Dialog dialogPrefab;
+
+    [SerializeField]
+    private WorldDialog worldDialogPrefab;
 
     private List<Dialog> dialogList = null;
 
@@ -50,19 +56,15 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            if (dialogList == null)
-            {
-                InitDialogPool(poolSize, dialogPrefab);
-            }
-            ShowDialog("yeah" + num++, Vector3.zero, DialogType.SimpleDialog);
-        }
-        if (Input.GetKeyUp(KeyCode.B))
-        {
-            ClearPool();
-        }
 
+    }
+
+    public void ShowWorldDialog(string message, Vector3 position, WorldDialogType dialogType)
+    {
+        WorldDialog dialog = Instantiate<WorldDialog>(worldDialogPrefab) as WorldDialog;
+        dialog.transform.position = position;
+        dialog.Init(message, dialogType);
+        dialog.gameObject.transform.SetParent(worldParent, false);
     }
 
     public void ShowDialog(string message, Vector3 position, DialogType dialogType)
@@ -110,7 +112,7 @@ public class HUDManager : MonoBehaviour
             print(child.name);
             if (child.GetComponent<Dialog>() != null)
             {
-                
+
                 child.GetComponent<Dialog>().Clear();
             }
         }
@@ -121,5 +123,15 @@ public class HUDManager : MonoBehaviour
                 child.GetComponent<Dialog>().Clear();
             }
         }
+    }
+
+    public void AddToInventory(Ingredient ingredient)
+    {
+        inventoryManager.AddItem(ingredient);
+    }
+
+    public List<Ingredient> GetInventoryContents()
+    {
+        return inventoryManager.GetInventoryContents();
     }
 }

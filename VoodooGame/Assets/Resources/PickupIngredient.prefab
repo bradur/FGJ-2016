@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11467812}
   - 212: {fileID: 21225766}
   m_Layer: 0
-  m_Name: pickupIngredient
+  m_Name: PickupIngredient
   m_TagString: Untagged
   m_Icon: {fileID: 5228209130450103505, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
