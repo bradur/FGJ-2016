@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour {
     private GameObject currentArea;
 
     [SerializeField]
+    private GameObject player;
+    public GameObject Player { get { return player; } }
+
+    [SerializeField]
     private float gold;
     public float Gold { get { return gold; } set { gold = value; } }
     public bool StealMode { get; set; }

@@ -141,6 +141,11 @@ public class HUDManager : MonoBehaviour
                 WorldDialogType.Shop
             );
         }
+
+        Vector3 newpos = GameManager.main.Player.transform.position;
+        newpos.y += 2.4f;
+        currentWorldDialog.transform.position = newpos;
+
         currentWorldDialog.AddIngredient(ingredientToAdd, pickup);
     }
 

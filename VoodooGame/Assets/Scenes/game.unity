@@ -921,11 +921,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403598, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.650176
+      value: 5.86
       objectReference: {fileID: 0}
     - target: {fileID: 403598, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.1742415
+      value: 6.49
       objectReference: {fileID: 0}
     - target: {fileID: 403598, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -953,7 +953,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 109554, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_Name
-      value: Dog (1)
+      value: TarmoLahiKauppias
       objectReference: {fileID: 0}
     - target: {fileID: 11464588, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: buyable
@@ -969,6 +969,32 @@ Prefab:
       value: 
       objectReference: {fileID: 11459590, guid: 8c79233875b032a41870955979e149d3,
         type: 2}
+    - target: {fileID: 11464588, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: stealable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21256234, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: 0c8fa110e2a868e4383160f61e39889c,
+        type: 3}
+    - target: {fileID: 21256234, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: m_Color.r
+      value: 0.26822016
+      objectReference: {fileID: 0}
+    - target: {fileID: 21256234, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: m_Color.g
+      value: 0.2725771
+      objectReference: {fileID: 0}
+    - target: {fileID: 21256234, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: m_Color.b
+      value: 0.30147058
+      objectReference: {fileID: 0}
+    - target: {fileID: 21249936, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: 0c8fa110e2a868e4383160f61e39889c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
   m_IsPrefabParent: 0
@@ -2069,6 +2095,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1164164870}
   - 212: {fileID: 1164164869}
+  - 60: {fileID: 1164164871}
   m_Layer: 0
   m_Name: Hut2
   m_TagString: Untagged
@@ -2118,6 +2145,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1543664633}
   m_RootOrder: 6
+--- !u!60 &1164164871
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164164868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.115104675, y: 1.1726556}
+      - {x: 0.026946068, y: 0.98503494}
+      - {x: 1.2196331, y: 0.38575315}
+      - {x: 1.7848902, y: -0.36882687}
+      - {x: 1.0456581, y: -0.39460182}
+      - {x: 0.90808296, y: -1.2461491}
+      - {x: 0.35757637, y: -1.4229064}
+      - {x: -0.49967957, y: -1.4674001}
+      - {x: -1.0290184, y: -1.2310658}
+      - {x: -1.3864622, y: -0.5286722}
+      - {x: -2.1351147, y: -0.22872019}
+      - {x: -0.91268826, y: 0.7118821}
 --- !u!1001 &1201192285
 Prefab:
   m_ObjectHideFlags: 0
@@ -2513,11 +2566,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 405324, guid: e7088cc9f070f684a942297a8f773143, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.0363543
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 405324, guid: e7088cc9f070f684a942297a8f773143, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.190879
+      value: 4.41
       objectReference: {fileID: 0}
     - target: {fileID: 405324, guid: e7088cc9f070f684a942297a8f773143, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2541,6 +2594,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405324, guid: e7088cc9f070f684a942297a8f773143, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419550, guid: e7088cc9f070f684a942297a8f773143, type: 2}
+      propertyPath: idleMovement
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2857,6 +2914,7 @@ MonoBehaviour:
   - {fileID: 1543664632}
   - {fileID: 2113230117}
   currentArea: {fileID: 1543664632}
+  player: {fileID: 1112042602}
   gold: 15
 --- !u!4 &1649560023
 Transform:
@@ -4039,11 +4097,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 403598, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.650176
+      value: 7.17
       objectReference: {fileID: 0}
     - target: {fileID: 403598, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.1742415
+      value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: 403598, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4206,6 +4264,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2111062292}
   - 212: {fileID: 2111062291}
+  - 60: {fileID: 2111062293}
   m_Layer: 0
   m_Name: Hut1
   m_TagString: Untagged
@@ -4255,6 +4314,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1543664633}
   m_RootOrder: 5
+--- !u!60 &2111062293
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111062290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.115104675, y: 1.1726556}
+      - {x: 0.026946068, y: 0.98503494}
+      - {x: 1.2196331, y: 0.38575315}
+      - {x: 1.7848902, y: -0.36882687}
+      - {x: 1.0456581, y: -0.39460182}
+      - {x: 0.90808296, y: -1.2461491}
+      - {x: 0.35757637, y: -1.4229064}
+      - {x: -0.49967957, y: -1.4674001}
+      - {x: -1.0290184, y: -1.2310658}
+      - {x: -1.3864622, y: -0.5286722}
+      - {x: -2.1351147, y: -0.22872019}
+      - {x: -0.91268826, y: 0.7118821}
 --- !u!1 &2113230117
 GameObject:
   m_ObjectHideFlags: 0
