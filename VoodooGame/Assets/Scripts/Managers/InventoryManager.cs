@@ -64,7 +64,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void AddItem(Ingredient itemToAdd, GameObject pickup)
+    public void AddItem(Ingredient itemToAdd, GameObject pickup, bool isButton = false)
     {
         if (items.Count >= inventoryLimit)
         {
@@ -92,6 +92,11 @@ public class InventoryManager : MonoBehaviour
             newItem.Init(itemToAdd, pickup);
             newItem.name = "item "+ running++;
             items.Add(newItem);
+
+            if (!isButton)
+            {
+                newItem.GetComponent<Button>().enabled = false;
+            }
         }
 
     }

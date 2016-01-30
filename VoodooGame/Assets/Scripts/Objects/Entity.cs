@@ -176,6 +176,14 @@ public class Entity : MonoBehaviour
         Instantiate(corpse, corpsePos, Quaternion.identity);
     }
 
+    public void Buy()
+    {
+        foreach (Ingredient item in buyItems)
+        {
+            HUDManager.main.AddBuyWorldDialogIngredient(item, gameObject);
+        }
+    }
+
     public void ShowOutline(Material outlineMaterial)
     {
         Renderer renderer = outline.GetComponent<Renderer>();
@@ -225,7 +233,7 @@ public class Entity : MonoBehaviour
         else if (GameManager.main.BuyMode && buyable)
         {
             Debug.Log("Buy");
-            //Buy();
+            Buy();
             HUDManager.main.ToggleBuyMode();
         }
         else if (GameManager.main.DigMode && diggable)

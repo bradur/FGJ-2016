@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour {
     private Material digOutline;
     public Material DigOutline { get { return digOutline; } }
 
+    [SerializeField]
+    private float gold;
+    public float Gold { get { return gold; } set { gold = value; } }
     public bool StealMode { get; set; }
     public bool KillMode { get; set; }
     public bool BuyMode { get; set; }

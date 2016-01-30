@@ -13,6 +13,9 @@ public class InventoryItem : MonoBehaviour {
     private Color colorVariable;
     [SerializeField]
     private Image imgComponent;
+    [SerializeField]
+    [Tooltip("Cost of a shop item")]
+    private float cost;
 
     [SerializeField]
     private Ingredient ingredient;
@@ -62,5 +65,14 @@ public class InventoryItem : MonoBehaviour {
     {
         Init(ingredient);
         this.pickup = pickup;
+    }
+
+    public void Buy() {
+        if(GameManager.main.Gold > ingredient.Cost) {
+            GameManager.main.Gold -= ingredient.Cost;
+            HUDManager.main.AddToInventory(ingredient);
+            HUDManager.main.RemoveWorldDialogIngredient(ingredient);
+            HUDManager.main.HideWorldDialog();
+        }
     }
 }

@@ -44,8 +44,7 @@ public class WorldDialog : MonoBehaviour {
                 }
                 dialogInventory.ClearInventory();
                 Hide();
-            }
-            
+            }            
         }
     }
 
@@ -63,6 +62,10 @@ public class WorldDialog : MonoBehaviour {
         {
             waitForAction = true;
         }
+        else if (this.dialogType == WorldDialogType.Shop)
+        {
+            waitForAction = false;
+        }
     }
 
     public void AddIngredient(Ingredient ingredient, GameObject pickup = null)
@@ -74,8 +77,12 @@ public class WorldDialog : MonoBehaviour {
             {
                 waitForAction = true;
             }
+            else if (this.dialogType == WorldDialogType.Shop)
+            {
+                waitForAction = false;
+            }
         }
-        dialogInventory.AddItem(ingredient, pickup);
+        dialogInventory.AddItem(ingredient, pickup, this.dialogType == WorldDialogType.Shop);
     }
 
     public void RemoveIngredient(Ingredient ingredient)
