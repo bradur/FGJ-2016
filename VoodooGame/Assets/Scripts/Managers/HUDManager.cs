@@ -49,6 +49,12 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private QuestUI questUI;
 
+    [SerializeField]
+    private GameObject buttonContainer;
+
+    [SerializeField]
+    private HomeScreen homeScreen;
+
     int num = 0;
 
     void Awake()
@@ -77,6 +83,32 @@ public class HUDManager : MonoBehaviour
 
     }
 
+
+    public void OpenHomeScreen()
+    {
+        homeScreen.gameObject.SetActive(true);
+        homeScreen.CheckOrStartQuest(questUI.QuestComplete());
+        questUI.gameObject.SetActive(false);
+        buttonContainer.gameObject.SetActive(false);
+        worldParent.gameObject.SetActive(false);
+        inventoryManager.gameObject.SetActive(false);
+    }
+
+    public void CloseHomeScreen()
+    {
+        homeScreen.gameObject.SetActive(false);
+        questUI.gameObject.SetActive(true);
+        buttonContainer.gameObject.SetActive(true);
+        worldParent.gameObject.SetActive(true);
+        inventoryManager.gameObject.SetActive(true);
+    }
+
+    public void SetNextQuest(List<QuestRequirement> requirements)
+    {
+        questUI.Clear();
+        inventoryManager.ClearInventory();
+        questUI.Init(requirements);
+    }
 
     public void AddWorldDialogIngredient(Ingredient ingredientToAdd, GameObject pickup = null)
     {

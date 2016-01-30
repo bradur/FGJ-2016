@@ -17,6 +17,7 @@ public class QuestUI : MonoBehaviour {
 
     [SerializeField]
     private List<QuestRequirement> requirements;
+    public List<QuestRequirement> Requirements { get { return requirements; } }
 
     [SerializeField]
     private QuestItem questItemPrefab;
@@ -86,7 +87,19 @@ public class QuestUI : MonoBehaviour {
                 break;
             }
         }
+    }
 
+    public bool QuestComplete()
+    {
+        for (int i = 0; i < questItemContainer.childCount; i++)
+        {
+            if (!questItemContainer.GetChild(i).GetComponent<QuestItem>().IsChecked)
+            {
+                Debug.Log(questItemContainer.GetChild(i).GetComponent<QuestItem>().name + " IS NOT COMPLETE!");
+                return false;
+            }
+        }
+        return true;
     }
 
     void Start () {

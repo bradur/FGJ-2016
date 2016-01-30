@@ -35,6 +35,7 @@ public class QuestItem : MonoBehaviour
         if (questRequirement.Check(ingredient))
         {
             checkMark.enabled = true;
+            isChecked = true;
             return true;
         }
         return false;

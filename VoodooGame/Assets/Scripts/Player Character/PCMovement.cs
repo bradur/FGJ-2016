@@ -17,21 +17,43 @@ public class PCMovement : MonoBehaviour {
     private Vector2 targetSpeed;
     private Rigidbody2D rigidBody2D;
 
+    private bool waitForConfirm = false;
+
     void Start () {
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        float move_h = Input.GetAxis("Horizontal");
-        float move_v = Input.GetAxis("Vertical");
+        if (!waitForConfirm) { 
+            float move_h = Input.GetAxis("Horizontal");
+            float move_v = Input.GetAxis("Vertical");
 
-        targetSpeed = new Vector2(speed * move_h, speed * move_v);
+            targetSpeed = new Vector2(speed * move_h, speed * move_v);
 
-        rigidBody2D.AddForce(speedFactor* (targetSpeed - rigidBody2D.velocity), ForceMode2D.Impulse);
+            rigidBody2D.AddForce(speedFactor* (targetSpeed - rigidBody2D.velocity), ForceMode2D.Impulse);
+        }
     }
 
     void Update () {
-    
+        if (waitForConfirm)
+        {
+            if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+            {
+                HUDManager.main.CloseHomeScreen();
+                waitForConfirm = false;
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Home")
+        {
+            HUDManager.main.OpenHomeScreen();
+            waitForConfirm = true;
+            rigidBody2D.velocity = Vector3.zero;
+        }
+
     }
 }

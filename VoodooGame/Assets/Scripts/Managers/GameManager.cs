@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour {
     private KeyCode pickupKey = KeyCode.Space;
     public KeyCode PickupKey { get { return pickupKey; } }
 
+
+    [SerializeField]
+    private KeyCode confirmKey = KeyCode.Return;
+    public KeyCode ConfirmKey { get { return confirmKey; } }
+
     [SerializeField]
     private Material killOutline;
     public Material KillOutline { get { return killOutline; } }

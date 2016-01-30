@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HUDManager
   - GameManager
+  - Home
   layers:
   - Default
   - TransparentFX
