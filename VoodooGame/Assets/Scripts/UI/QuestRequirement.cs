@@ -63,6 +63,13 @@ public class QuestRequirement : MonoBehaviour {
                 match = false;
             }
         }
+        else if (gatheredType == GatheredType.AnyPlant)
+        {
+            if (ingredient.GatheredType != GatheredType.Flower && ingredient.GatheredType != GatheredType.Weed)
+            {
+                match = false;
+            }
+        }
         else if (gatheredType != ingredient.GatheredType)
         {
             match = false;
