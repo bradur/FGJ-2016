@@ -124,6 +124,20 @@ public class HUDManager : MonoBehaviour
         currentWorldDialog.AddIngredient(ingredientToAdd, pickup);
     }
 
+    public void AddBuyWorldDialogIngredient(Ingredient ingredientToAdd, GameObject pickup = null)
+    {
+        if (currentWorldDialog == null)
+        {
+            currentWorldDialog = Instantiate<WorldDialog>(worldDialogPrefab) as WorldDialog;
+            currentWorldDialog.transform.SetParent(worldParent, false);
+            currentWorldDialog.Init(
+                "Click to buy an item!",
+                WorldDialogType.Shop
+            );
+        }
+        currentWorldDialog.AddIngredient(ingredientToAdd, pickup);
+    }
+
     public void RemoveWorldDialogIngredient(Ingredient ingredientToRemove)
     {
         if (currentWorldDialog != null)
@@ -134,6 +148,11 @@ public class HUDManager : MonoBehaviour
         {
             Debug.Log("No world dialog!!");
         }
+    }
+
+    public void HideWorldDialog()
+    {
+        currentWorldDialog.Hide();
     }
 
     public void ShowWorldDialog(string message, Vector3 position, WorldDialogType dialogType)
