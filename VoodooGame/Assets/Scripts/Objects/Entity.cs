@@ -75,8 +75,9 @@ public class Entity : MonoBehaviour
             }
         }
 
-        currentWaypoint = waypoints[0];
-        
+        if (waypoints.Count > 0) { 
+            currentWaypoint = waypoints[0];
+        }
 
     }
 
@@ -127,17 +128,17 @@ public class Entity : MonoBehaviour
         Ingredient boneIngredient = Resources.Load<Ingredient>("Ingredients/" + bone) as Ingredient;
 
         PickupIngredient meatPI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
-        meatPI = Instantiate(meatPI, transform.position, Quaternion.identity) as PickupIngredient;
+        meatPI = Instantiate(meatPI, transform.localPosition, Quaternion.identity) as PickupIngredient;
         meatPI.transform.SetParent(transform.parent, false);
         meatPI.Init(meatIngredient);
 
         PickupIngredient bloodPI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
-        bloodPI = Instantiate(bloodPI, transform.position, Quaternion.identity) as PickupIngredient;
+        bloodPI = Instantiate(bloodPI, transform.localPosition, Quaternion.identity) as PickupIngredient;
         bloodPI.transform.SetParent(transform.parent, false);
         bloodPI.Init(bloodIngredient);
 
         PickupIngredient bonePI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
-        bonePI = Instantiate(bonePI, transform.position, Quaternion.identity) as PickupIngredient;
+        bonePI = Instantiate(bonePI, transform.localPosition, Quaternion.identity) as PickupIngredient;
         bonePI.transform.SetParent(transform.parent, false);
         bonePI.Init(boneIngredient);
 
@@ -164,7 +165,7 @@ public class Entity : MonoBehaviour
         foreach (Ingredient loot in digItems)
         {
             PickupIngredient pickup = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
-            pickup = Instantiate(pickup, transform.position, Quaternion.identity) as PickupIngredient;
+            pickup = Instantiate(pickup, transform.localPosition, Quaternion.identity) as PickupIngredient;
             pickup.transform.SetParent(transform.parent, false);
             pickup.Init(loot);
         }

@@ -3,6 +3,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -33,6 +34,12 @@ public class GameManager : MonoBehaviour {
     private Material digOutline;
     public Material DigOutline { get { return digOutline; } }
 
+
+    [SerializeField]
+    private List<GameObject> areas = new List<GameObject>();
+    [SerializeField]
+    private GameObject currentArea;
+
     [SerializeField]
     private float gold;
     public float Gold { get { return gold; } set { gold = value; } }
@@ -57,6 +64,12 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
+    public void OpenArea(int areaNumber)
+    {
+        currentArea.SetActive(false);
+        currentArea = areas[areaNumber];
+        currentArea.SetActive(true);
+    }
 
     void Start () {
     

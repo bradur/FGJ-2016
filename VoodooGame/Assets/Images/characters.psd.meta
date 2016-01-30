@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0c8fa110e2a868e4383160f61e39889c
-timeCreated: 1454175529
+timeCreated: 1454189584
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,7 @@ TextureImporter:
     21300004: characters_0
     21300006: characters_1
     21300008: characters_2
+    21300010: characters_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -353,6 +354,37 @@ TextureImporter:
         - {x: 444.5, y: -128}
         - {x: 444.5, y: -126}
         - {x: 437.5, y: -118}
+    - name: characters_3
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1537
+        width: 343
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 111.5, y: -123.5}
+        - {x: 122.5, y: -134.5}
+        - {x: 145.5, y: -134.5}
+        - {x: 145.5, y: 142.5}
+        - {x: 123.5, y: 159.5}
+        - {x: 110.5, y: 159.5}
+        - {x: 107.5, y: 148.5}
+        - {x: 108.5, y: 138.5}
+        - {x: -146.5, y: 49.5}
+        - {x: -153.5, y: 12.5}
+        - {x: -153.5, y: -33.5}
+        - {x: -120.5, y: -129.5}
+        - {x: -111.5, y: -126.5}
+        - {x: -99.5, y: -108.5}
+        - {x: -93.5, y: -132.5}
+        - {x: -88.5, y: -134.5}
+        - {x: 16.5, y: -134.5}
+        - {x: 48.5, y: -131.5}
+        - {x: 78.5, y: -99.5}
+        - {x: 79.5, y: -83.5}
     outline: []
   spritePackingTag: 
   userData: 

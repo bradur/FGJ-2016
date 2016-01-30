@@ -121,6 +121,12 @@ public class HUDManager : MonoBehaviour
                 WorldDialogType.ItemPickup
             );
         }
+        if (pickup != null)
+        {
+            Vector3 newpos = pickup.transform.position;
+            newpos.y += 2.4f;
+            currentWorldDialog.transform.position = newpos;
+        }
         currentWorldDialog.AddIngredient(ingredientToAdd, pickup);
     }
 
