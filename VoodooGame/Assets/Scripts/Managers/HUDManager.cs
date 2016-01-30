@@ -46,6 +46,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private Text buyButtonTxt;
 
+    private QuestUI questUI;
+
     int num = 0;
 
     void Awake()
@@ -169,6 +171,7 @@ public class HUDManager : MonoBehaviour
 
     public void AddToInventory(Ingredient ingredient)
     {
+        questUI.FitsRequirement(ingredient);
         inventoryManager.AddItem(ingredient);
     }
 

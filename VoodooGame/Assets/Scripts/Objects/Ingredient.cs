@@ -35,7 +35,7 @@ public class Ingredient : MonoBehaviour {
     }
 }
 
-public enum AnimalType { None, Human, Cat, Dog, Chicken }
-public enum AnimalState { None, Alive, Meat, Bone, Blood }
-public enum GatheredType { None, Flower, Candle, Weed }
-public enum GatheredState { None, Red, Blue, Green, Purple, White }
+public enum AnimalType { None, Human, Cat, Dog, Chicken, Any }
+public enum AnimalState { None, Alive, Meat, Bone, Blood, Any }
+public enum GatheredType { None, Flower, Candle, Weed, Jewel, Any }
+public enum GatheredState { None, Red, Blue, Green, Purple, White, Any }
