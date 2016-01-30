@@ -113,7 +113,7 @@ public class InventoryManager : MonoBehaviour
             if (item.Ingredient == ingredientToRemove)
             {
                 Remove(item);
-                item.Kill();
+                Destroy(item.gameObject);
             }
         }
     }
