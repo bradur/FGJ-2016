@@ -172,6 +172,10 @@ Prefab:
       propertyPath: m_Name
       value: requirements
       objectReference: {fileID: 0}
+    - target: {fileID: 11488604, guid: 297943b987810ac429acc8993cce05ee, type: 2}
+      propertyPath: questUI
+      value: 
+      objectReference: {fileID: 63555577}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 297943b987810ac429acc8993cce05ee, type: 2}
   m_IsPrefabParent: 0

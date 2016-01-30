@@ -166,8 +166,8 @@ public class HUDManager : MonoBehaviour
 
     public void AddToInventory(Ingredient ingredient)
     {
-        inventoryManager.AddItem(ingredient);
         questUI.FitsRequirement(ingredient);
+        inventoryManager.AddItem(ingredient);
     }
 
     public List<InventoryItem> GetInventoryContents()

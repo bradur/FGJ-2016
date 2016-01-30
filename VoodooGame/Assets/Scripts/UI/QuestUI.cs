@@ -64,7 +64,6 @@ public class QuestUI : MonoBehaviour {
         int level = 0;
         float step = -80f;
         foreach(QuestRequirement qr in reqs){
-            Debug.Log("QR: "+ qr.name);
             QuestItem qi = Instantiate<QuestItem>(questItemPrefab) as QuestItem;
             qi.Init(qr);
             qi.transform.position = new Vector3(0f, level*step, 0f);
