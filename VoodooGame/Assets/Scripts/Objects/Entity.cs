@@ -29,18 +29,29 @@ public class Entity : MonoBehaviour
     private bool standStill = false;
     private float maxSpeed = 1.5f;
 
+    private GameObject outline;
+
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         waypoints = new List<Vector3>();
 
+        //loop children, create waypoints and hide outline
         Vector3 player = transform.position;
         foreach (Transform child in gameObject.transform)
         {
             waypoints.Add(child.position);
+
+            if (child.name == "Outline")
+            {
+                outline = child.gameObject;
+                outline.GetComponent<Renderer>().enabled = false;
+            }
         }
 
         currentWaypoint = waypoints[0];
+        
+
     }
 
     void Update()
@@ -91,18 +102,22 @@ public class Entity : MonoBehaviour
 
         PickupIngredient meatPI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
         meatPI = Instantiate(meatPI, transform.position, Quaternion.identity) as PickupIngredient;
-        meatPI.transform.SetParent(transform, false);
+        meatPI.transform.SetParent(transform.parent, false);
         meatPI.Init(meatIngredient);
 
         PickupIngredient bloodPI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
         bloodPI = Instantiate(bloodPI, transform.position, Quaternion.identity) as PickupIngredient;
-        bloodPI.transform.SetParent(transform, false);
+        bloodPI.transform.SetParent(transform.parent, false);
         bloodPI.Init(bloodIngredient);
 
         PickupIngredient bonePI = Resources.Load<PickupIngredient>("pickupIngredient") as PickupIngredient;
         bonePI = Instantiate(bonePI, transform.position, Quaternion.identity) as PickupIngredient;
-        bonePI.transform.SetParent(transform, false);
+        bonePI.transform.SetParent(transform.parent, false);
         bonePI.Init(boneIngredient);
+
+        idleMovement = false;
+
+        outline.GetComponent<Renderer>().enabled = true;
     }
 
     public void Steal()
@@ -119,7 +134,7 @@ public class Entity : MonoBehaviour
         {
             GetRandomWaypoint();
         }
-
+        Kill();
         Debug.Log("Piu!");
     }
 
