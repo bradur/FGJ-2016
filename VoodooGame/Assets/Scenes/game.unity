@@ -340,6 +340,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Title
+--- !u!1 &83946691 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 109554, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+  m_PrefabInternal: {fileID: 450577598}
+--- !u!114 &83946696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83946691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c3105d38595b64cb9b619fb99fe5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 11459590, guid: 494b2838f33d5c44db81304009f27aa7, type: 2}
 --- !u!1 &120421866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +3989,22 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1735839257}
+--- !u!1 &1752001213 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 102140, guid: e7088cc9f070f684a942297a8f773143, type: 2}
+  m_PrefabInternal: {fileID: 1353620657}
+--- !u!114 &1752001218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752001213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c3105d38595b64cb9b619fb99fe5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 11444788, guid: 6cfa660a6ae667740b71b80735cabedf, type: 2}
 --- !u!1 &1814584253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,6 +4430,22 @@ MonoBehaviour:
   diggable: 1
   smoothTime: 0.3
   idleMovement: 0
+--- !u!1 &1918932313 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 109554, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+  m_PrefabInternal: {fileID: 2086728622}
+--- !u!114 &1918932318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1918932313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c3105d38595b64cb9b619fb99fe5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 11459590, guid: 2ce7ccfd9b8a57441a8a0b7b75f186ea, type: 2}
 --- !u!1 &1928999048
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,14 @@ public class InventoryItem : MonoBehaviour {
             Entity entity = pickup.GetComponent<Entity>();
             if (entity != null)
             {
-                entity.DeleteStealItems();
+                if (Ingredient.AnimalState == AnimalState.Alive)
+                {
+                    Destroy(pickup.gameObject);
+                }
+                else
+                {
+                    entity.DeleteStealItems();
+                }
             }
             else
             {
