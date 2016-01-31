@@ -78,7 +78,6 @@ public class PCMovement : MonoBehaviour
                     {
                         Application.Quit();
                     }
-                    timer = 0f;
                 }
                 else
                 {

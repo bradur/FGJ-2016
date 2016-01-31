@@ -45,7 +45,7 @@ public class HomeScreen : MonoBehaviour {
             if (quests.Count > 0) {
                 if (questnum > 0)
                 {
-                    txtComponent.text = "Quest complete! Press Enter to continue.";
+                    txtComponent.text = "Quest complete!";
                     questStorytxt.text = currentQuest.EndDescription;
                     waitForConfirm = true;
                     GameManager.main.Player.GetComponent<PCMovement>().DisallowConfirm();
@@ -84,6 +84,7 @@ public class HomeScreen : MonoBehaviour {
         if (isGameOver)
         {
             GameManager.main.Player.GetComponent<PCMovement>().DisallowMovement();
+            GameManager.main.Player.GetComponent<PCMovement>().AllowConfirm();
         }
         panel.SetActive(true);
     }
