@@ -60,7 +60,7 @@ public class QuestUI : MonoBehaviour
     public void Init(Quest quest)
     {
         int level = 0;
-        float step = -80f;
+        float step = -40f;
         foreach (QuestRequirement qr in quest.Requirements)
         {
             QuestItem qi = Instantiate<QuestItem>(questItemPrefab) as QuestItem;
