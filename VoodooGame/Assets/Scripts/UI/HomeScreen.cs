@@ -55,8 +55,12 @@ public class HomeScreen : MonoBehaviour {
         }
     }
 
-    public void Show()
+    public void Show(bool isGameOver = false)
     {
+        if (isGameOver)
+        {
+            GameManager.main.Player.GetComponent<PCMovement>().DisallowMovement();
+        }
         panel.SetActive(true);
     }
 

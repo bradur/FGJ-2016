@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour {
 
 
     [SerializeField]
+    private KeyCode exitKey = KeyCode.Escape;
+    public KeyCode ExitKey { get { return exitKey; } }
+
+    [SerializeField]
     private KeyCode confirmKey = KeyCode.Return;
     public KeyCode ConfirmKey { get { return confirmKey; } }
 

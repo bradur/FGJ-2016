@@ -18,6 +18,7 @@ public class PCMovement : MonoBehaviour {
     private Rigidbody2D rigidBody2D;
 
     private bool waitForConfirm = false;
+    private bool noMoving = false;
 
     void Start () {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -25,7 +26,7 @@ public class PCMovement : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (!waitForConfirm) { 
+        if (!waitForConfirm || !noMoving) { 
             float move_h = Input.GetAxis("Horizontal");
             float move_v = Input.GetAxis("Vertical");
 
@@ -46,6 +47,24 @@ public class PCMovement : MonoBehaviour {
                 HUDManager.main.CheckGameOver();
             }
         }
+        if (noMoving)
+        {
+            Debug.Log("test");
+            if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+            {
+                Application.LoadLevel(0);
+            }
+            if (Input.GetKeyUp(GameManager.main.ExitKey))
+            {
+                Application.Quit();
+            }
+        }
+    }
+
+    public void DisallowMovement()
+    {
+        Stop();
+        noMoving = true;
     }
 
     public void Stop()

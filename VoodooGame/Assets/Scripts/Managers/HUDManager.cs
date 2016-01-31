@@ -411,7 +411,7 @@ public class HUDManager : MonoBehaviour
 
     private void GameOver()
     {
-        gameoverScreen.Show();
+        gameoverScreen.Show(true);
         
         questUI.Hide();
         goldDisplaytxt.enabled = false;
