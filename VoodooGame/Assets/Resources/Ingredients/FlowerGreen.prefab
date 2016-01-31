@@ -43,7 +43,7 @@ MonoBehaviour:
   animalState: 0
   gatheredType: 1
   gatheredState: 3
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300016, guid: f2997bb82b385c245b85f866eef2a39f, type: 3}
   cost: 10
 --- !u!1001 &100100000
 Prefab:
@@ -72,6 +72,11 @@ Prefab:
       propertyPath: gatheredState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300016, guid: f2997bb82b385c245b85f866eef2a39f,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149634}
