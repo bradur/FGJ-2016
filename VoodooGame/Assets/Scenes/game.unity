@@ -1391,6 +1391,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300006, guid: 0c8fa110e2a868e4383160f61e39889c,
         type: 3}
+    - target: {fileID: 11464588, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
+      propertyPath: animalType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1b2d49d6df0eac4fb01f0ec41d8462c, type: 2}
   m_IsPrefabParent: 0
@@ -4176,6 +4180,7 @@ MonoBehaviour:
   currentArea: {fileID: 1543664632}
   player: {fileID: 1112042602}
   gold: 15
+  ingredientColors: []
 --- !u!4 &1649560023
 Transform:
   m_ObjectHideFlags: 0
