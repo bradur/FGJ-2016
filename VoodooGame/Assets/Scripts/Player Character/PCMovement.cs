@@ -42,6 +42,8 @@ public class PCMovement : MonoBehaviour {
             {
                 HUDManager.main.CloseHomeScreen();
                 waitForConfirm = false;
+
+                HUDManager.main.CheckGameOver();
             }
         }
     }

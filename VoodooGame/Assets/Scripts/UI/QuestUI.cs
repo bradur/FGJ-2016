@@ -103,9 +103,9 @@ public class QuestUI : MonoBehaviour
     {
         List<QuestItem> questItems = new List<QuestItem>();
 
-        foreach (QuestItem qItem in questItemContainer)
+        for (int i = 0; i < questItemContainer.childCount; i++)
         {
-            questItems.Add(qItem);
+            questItems.Add(questItemContainer.GetChild(i).GetComponent<QuestItem>());
         }
 
         return questItems;
