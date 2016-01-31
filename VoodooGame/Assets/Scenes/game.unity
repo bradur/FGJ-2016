@@ -2255,7 +2255,7 @@ Prefab:
     - target: {fileID: 21225766, guid: eed1aabfc59ea9545a0e8304d524db7a, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300016, guid: f2997bb82b385c245b85f866eef2a39f,
+      objectReference: {fileID: 21300000, guid: f2997bb82b385c245b85f866eef2a39f,
         type: 3}
     - target: {fileID: 153252, guid: eed1aabfc59ea9545a0e8304d524db7a, type: 2}
       propertyPath: m_Name
