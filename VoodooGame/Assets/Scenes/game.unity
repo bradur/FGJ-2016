@@ -4399,6 +4399,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 11446056, guid: 1f2e1601c1161ab47b256a9f656649d9, type: 2}
   - {fileID: 11446056, guid: 24f77ac2ea4474846ba52ee1a5a1c739, type: 2}
+  - {fileID: 11446056, guid: 93933dbc613c89d4dac79e8396ce72dc, type: 2}
+  - {fileID: 11446056, guid: 75a8d616d9540dc4ba73921f1025383a, type: 2}
+  - {fileID: 11446056, guid: 73966dbd56ecc4547a0023bbae712b8d, type: 2}
+  - {fileID: 11446056, guid: 7a8a959b594e92b418bd23f77328ee6a, type: 2}
+  - {fileID: 11446056, guid: 007bae306c18b6649bb764b069e8169c, type: 2}
+  - {fileID: 11446056, guid: 20c31d7305ad5154b976c8ba0439bc60, type: 2}
+  - {fileID: 11446056, guid: 5fb3d81c5494e444fa4fef96afd97799, type: 2}
+  - {fileID: 11446056, guid: dff38d08204a9de48b097e84aec9d1ff, type: 2}
+  - {fileID: 11446056, guid: 4ad92425f5ae601439bd4f2df5075794, type: 2}
+  - {fileID: 11446056, guid: 8a01481411a404849a3ec6f25cc8f28d, type: 2}
+  - {fileID: 11446056, guid: b449d9616a2016646a759679fe36a739, type: 2}
   questTitletxt: {fileID: 78677212}
   questStorytxt: {fileID: 1258208820}
 --- !u!222 &1006530712
@@ -6234,7 +6245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1543664633
 Transform:
   m_ObjectHideFlags: 0
@@ -7649,7 +7660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1888104638
 Transform:
   m_ObjectHideFlags: 0
