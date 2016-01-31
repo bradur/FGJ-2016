@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &131302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415016}
+  - 114: {fileID: 11446056}
+  m_Layer: 0
+  m_Name: Quest8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.966667, y: 1.8020834, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11446056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Profitable ritual
+  description: "Damn, now that you healed the chief\u2019s son, we are getting many
+    requests from all over the village. People don\u2019t understand how serious this
+    is! However, there was one proposition who actually looked very profitable\u2026
+    I\u2019m sure the spirits will agree.\r\nMr Whine is having very intense toothache,
+    so much he is willing to pay us a significant amount of gold if we can make it
+    go. To fulfill that ritual we need to spill some blood over a candle, and burn
+    a flower over it. I wonder what the hell the spirits were thinking, maybe even
+    some ancient shaman got it wrong, but yeah, that\u2019s what you must do."
+  endDescription: Mr Whine drank the blood from the ritual. He says his toothache
+    is gone, but he spent several days sitting on the toilet. Man is never happy!
+  requirements:
+  - {fileID: 11445398, guid: 6abf52fff993fc342b59c112c69e4e38, type: 2}
+  - {fileID: 11445398, guid: 9c9eea5cc66697b408b7ce350388553f, type: 2}
+  - {fileID: 11445398, guid: 490f4407ac83a0949a8e4e3166fff03e, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11445398, guid: 6abf52fff993fc342b59c112c69e4e38,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[1]
+      value: 
+      objectReference: {fileID: 11445398, guid: 9c9eea5cc66697b408b7ce350388553f,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: "Damn, now that you healed the chief\u2019s son, we are getting many
+        requests from all over the village. People don\u2019t understand how serious
+        this is! However, there was one proposition who actually looked very profitable\u2026
+        I\u2019m sure the spirits will agree.\r\nMr Whine is having very intense toothache,
+        so much he is willing to pay us a significant amount of gold if we can make
+        it go. To fulfill that ritual we need to spill some blood over a candle, and
+        burn a flower over it. I wonder what the hell the spirits were thinking, maybe
+        even some ancient shaman got it wrong, but yeah, that\u2019s what you must
+        do."
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: title
+      value: Profitable ritual
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endDescription
+      value: Mr Whine drank the blood from the ritual. He says his toothache is gone,
+        but he spent several days sitting on the toilet. Man is never happy!
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[2]
+      value: 
+      objectReference: {fileID: 11445398, guid: 490f4407ac83a0949a8e4e3166fff03e,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 131302}
+  m_IsPrefabParent: 1

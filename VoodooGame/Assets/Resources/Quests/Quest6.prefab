@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: First kill
-  description: "The weather prediction was not of the likings of our fellow villagers,
+  title: "Bearer of bad news\u2026"
+  description: "The weather prediction was not to the likings of our fellow villagers,
     and they decided not to pay. What should we have said? It\u2019s the spirits who
     spoke!\r\nSetting that aside, we need to teach the villagers a lesson. You will
     cast a lesser curse upon them. It\u2019s called \u201CPredators are lurking\u201D.
@@ -50,9 +50,12 @@ MonoBehaviour:
     here? Use your imagination!\r\nWealthy people have their graveyard adorned with
     jade, probably there are leftovers in  the graveyard. it shouldn\u2019t be hard
     to get."
-  endDescription: Fine enough. I guess this might be JUST enough....
+  endDescription: "Ha ha ha, look how they run!\r\nAnd see? we didn\u2019t harm the
+    kitty during the ritual! What do you think we are?"
   requirements:
-  - {fileID: 11445398, guid: 6abf52fff993fc342b59c112c69e4e38, type: 2}
+  - {fileID: 11445398, guid: c401160d639dfb740b67ef134ee96201, type: 2}
+  - {fileID: 11445398, guid: a92a82c0f5c6c304ea72c1e936b1889e, type: 2}
+  - {fileID: 11445398, guid: 996a7c9c52c96884ebdead67b0bc4ecd, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -62,21 +65,21 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: requirements.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: requirements.Array.data[0]
       value: 
-      objectReference: {fileID: 11445398, guid: 6abf52fff993fc342b59c112c69e4e38,
+      objectReference: {fileID: 11445398, guid: c401160d639dfb740b67ef134ee96201,
         type: 2}
     - target: {fileID: 0}
       propertyPath: requirements.Array.data[1]
       value: 
-      objectReference: {fileID: 11445398, guid: 9c40c58ab060022458998187ffa0faf9,
+      objectReference: {fileID: 11445398, guid: a92a82c0f5c6c304ea72c1e936b1889e,
         type: 2}
     - target: {fileID: 0}
       propertyPath: description
-      value: "The weather prediction was not of the likings of our fellow villagers,
+      value: "The weather prediction was not to the likings of our fellow villagers,
         and they decided not to pay. What should we have said? It\u2019s the spirits
         who spoke!\r\nSetting that aside, we need to teach the villagers a lesson.
         You will cast a lesser curse upon them. It\u2019s called \u201CPredators are
@@ -89,11 +92,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: title
-      value: First kill
+      value: "Bearer of bad news\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: endDescription
-      value: Fine enough. I guess this might be JUST enough....
+      value: "Ha ha ha, look how they run!\r\nAnd see? we didn\u2019t harm the kitty
+        during the ritual! What do you think we are?"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

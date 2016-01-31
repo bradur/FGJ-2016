@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &131302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415016}
+  - 114: {fileID: 11446056}
+  m_Layer: 0
+  m_Name: Quest9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.966667, y: 1.8020834, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11446056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Talking to spirits
+  description: "You are progressing quite nicely, you may even complete your training
+    and become a shaman, unlike your predecessor\u2026 damm, it was nasty what happened
+    there\u2026 Let\u2019s see if you can complete the next trial. You have to talk
+    with the earth spirits. The power to do so resides in some particular stones,
+    humans call them jewels. Bring me one of every type you can find. I\u2019m not
+    going to force to steal from the highest classy people of our society. It\u2019s
+    not my job to find the ingredients required for the ritual; it\u2019s yours."
+  endDescription: "So many valuable jewels\u2026 did I tell you the spirits told me
+    it\u2019s not really needed for you to undergo this ritual? You can become a shaman
+    nevertheless.\r\nThe jewels? Yes, I'll keep them for future rituals."
+  requirements:
+  - {fileID: 11445398, guid: 0147d77e5a01fcc43aa1ed5b83eb2438, type: 2}
+  - {fileID: 11445398, guid: 1905d09f379b08543b2bb9036a3e59bc, type: 2}
+  - {fileID: 11445398, guid: d7b2ed355c826134f8e1e3e92aac7565, type: 2}
+  - {fileID: 11445398, guid: 996a7c9c52c96884ebdead67b0bc4ecd, type: 2}
+  - {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11445398, guid: 0147d77e5a01fcc43aa1ed5b83eb2438,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[1]
+      value: 
+      objectReference: {fileID: 11445398, guid: 1905d09f379b08543b2bb9036a3e59bc,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: "You are progressing quite nicely, you may even complete your training
+        and become a shaman, unlike your predecessor\u2026 damm, it was nasty what
+        happened there\u2026 Let\u2019s see if you can complete the next trial. You
+        have to talk with the earth spirits. The power to do so resides in some particular
+        stones, humans call them jewels. Bring me one of every type you can find.
+        I\u2019m not going to force to steal from the highest classy people of our
+        society. It\u2019s not my job to find the ingredients required for the ritual;
+        it\u2019s yours."
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: title
+      value: Talking to spirits
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endDescription
+      value: "So many valuable jewels\u2026 did I tell you the spirits told me it\u2019s
+        not really needed for you to undergo this ritual? You can become a shaman
+        nevertheless.\r\nThe jewels? Yes, I'll keep them for future rituals."
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[2]
+      value: 
+      objectReference: {fileID: 11445398, guid: d7b2ed355c826134f8e1e3e92aac7565,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[3]
+      value: 
+      objectReference: {fileID: 11445398, guid: 996a7c9c52c96884ebdead67b0bc4ecd,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[4]
+      value: 
+      objectReference: {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 131302}
+  m_IsPrefabParent: 1

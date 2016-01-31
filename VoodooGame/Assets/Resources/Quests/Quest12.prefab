@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &131302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415016}
+  - 114: {fileID: 11446056}
+  m_Layer: 0
+  m_Name: Quest12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.966667, y: 1.8020834, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11446056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Drums of war
+  description: "I just talked to the chief. It seems there will be war. We need to
+    make sure the spirits are on our side. You have almost completed your training.
+    Dire times require dire measures, it\u2019s time for you to kill. We need to use
+    a human skull and put two diamonds on the eye sockets."
+  endDescription: I knew there was a killer in you, good job! The ritual will allow
+    us to burn our enemies!
+  requirements:
+  - {fileID: 11445398, guid: 20ce080347c223d4ab985fccede482c2, type: 2}
+  - {fileID: 11445398, guid: d7cd5cdb9d8971643b55c650f98bc118, type: 2}
+  - {fileID: 11445398, guid: d7cd5cdb9d8971643b55c650f98bc118, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11445398, guid: 20ce080347c223d4ab985fccede482c2,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[1]
+      value: 
+      objectReference: {fileID: 11445398, guid: d7cd5cdb9d8971643b55c650f98bc118,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: "I just talked to the chief. It seems there will be war. We need to make
+        sure the spirits are on our side. You have almost completed your training.
+        Dire times require dire measures, it\u2019s time for you to kill. We need
+        to use a human skull and put two diamonds on the eye sockets."
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: title
+      value: Drums of war
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endDescription
+      value: I knew there was a killer in you, good job! The ritual will allow us
+        to burn our enemies!
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[2]
+      value: 
+      objectReference: {fileID: 11445398, guid: d7cd5cdb9d8971643b55c650f98bc118,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[3]
+      value: 
+      objectReference: {fileID: 11445398, guid: cbe0c28b886e2754d9d7ed0f3513a682,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[4]
+      value: 
+      objectReference: {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 131302}
+  m_IsPrefabParent: 1

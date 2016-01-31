@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &131302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415016}
+  - 114: {fileID: 11446056}
+  m_Layer: 0
+  m_Name: Quest11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.966667, y: 1.8020834, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11446056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Chill Out
+  description: "After eating so much, let\u2019s relax\u2026 I mean, look for inspiration,
+    meditation. There is a certain combination of weeds, flowers, and, of course,
+    blood, that will make us\u2026 concentrate quite a lot."
+  endDescription: I definitely saw the spirits, did you?
+  requirements:
+  - {fileID: 11445398, guid: 7f4e8fb52f35d8547943f55af9feec5c, type: 2}
+  - {fileID: 11445398, guid: d7cd5cdb9d8971643b55c650f98bc118, type: 2}
+  - {fileID: 11445398, guid: 0e894a6368757db448c253acb61fa130, type: 2}
+  - {fileID: 11445398, guid: cbe0c28b886e2754d9d7ed0f3513a682, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[0]
+      value: 
+      objectReference: {fileID: 11445398, guid: 7f4e8fb52f35d8547943f55af9feec5c,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[1]
+      value: 
+      objectReference: {fileID: 11445398, guid: d7cd5cdb9d8971643b55c650f98bc118,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: "After eating so much, let\u2019s relax\u2026 I mean, look for inspiration,
+        meditation. There is a certain combination of weeds, flowers, and, of course,
+        blood, that will make us\u2026 concentrate quite a lot."
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: title
+      value: Chill Out
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endDescription
+      value: I definitely saw the spirits, did you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[2]
+      value: 
+      objectReference: {fileID: 11445398, guid: 0e894a6368757db448c253acb61fa130,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[3]
+      value: 
+      objectReference: {fileID: 11445398, guid: cbe0c28b886e2754d9d7ed0f3513a682,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: requirements.Array.data[4]
+      value: 
+      objectReference: {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 131302}
+  m_IsPrefabParent: 1
