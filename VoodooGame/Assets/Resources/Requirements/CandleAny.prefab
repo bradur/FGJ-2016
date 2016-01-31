@@ -31,6 +31,8 @@ MonoBehaviour:
   animalState: 0
   gatheredType: 2
   gatheredState: 6
+  sprite: {fileID: 0}
+  description: I need one more candle
 --- !u!224 &22484906
 RectTransform:
   m_ObjectHideFlags: 1
@@ -70,6 +72,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: gatheredState
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: I need one more candle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

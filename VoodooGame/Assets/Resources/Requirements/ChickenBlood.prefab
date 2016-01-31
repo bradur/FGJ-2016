@@ -32,7 +32,7 @@ MonoBehaviour:
   gatheredType: 0
   gatheredState: 0
   sprite: {fileID: 0}
-  description: Chicken Blood
+  description: Vial of chicken blood
 --- !u!224 &22484906
 RectTransform:
   m_ObjectHideFlags: 1
@@ -71,7 +71,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: description
-      value: Chicken Blood
+      value: Vial of chicken blood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

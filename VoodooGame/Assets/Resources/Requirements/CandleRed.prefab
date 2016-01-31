@@ -31,6 +31,8 @@ MonoBehaviour:
   animalState: 0
   gatheredType: 2
   gatheredState: 1
+  sprite: {fileID: 0}
+  description: Bring me a red candle
 --- !u!224 &22484906
 RectTransform:
   m_ObjectHideFlags: 1
@@ -70,6 +72,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: gatheredState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: Bring me a red candle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
