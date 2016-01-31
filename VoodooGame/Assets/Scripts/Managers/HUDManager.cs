@@ -69,6 +69,7 @@ public class HUDManager : MonoBehaviour
     private Image goldDisplayimg;
     [SerializeField]
     private Image goldDisplaybg;
+    private bool waitForEndKey = false;
 
     int num = 0;
 
@@ -87,6 +88,8 @@ public class HUDManager : MonoBehaviour
 
     }
 
+
+
     void Start()
     {
 
@@ -95,6 +98,23 @@ public class HUDManager : MonoBehaviour
     void Update()
     {
 
+        if (waitForEndKey)
+        {
+            if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+            {
+                Application.Quit();
+            }
+            else if (Input.GetKeyUp(GameManager.main.PickupKey))
+            {
+                waitForEndKey = false;
+                ClearPool();
+            }
+        }
+        if (Input.GetKeyUp(GameManager.main.ExitKey))
+        {
+            ShowDialog("Really quit? Press enter. Press space to return", Vector3.zero, DialogType.SimpleDialog);
+            waitForEndKey = true;
+        }
     }
 
     public void UpdateGold(int newCount)
@@ -233,6 +253,10 @@ public class HUDManager : MonoBehaviour
 
     public Dialog GetDialog()
     {
+        if (dialogList == null)
+        {
+            InitDialogPool(1, dialogPrefab);
+        }
         if (dialogList.Count > 0)
         {
             Dialog dialog = dialogList[0];
@@ -249,13 +273,12 @@ public class HUDManager : MonoBehaviour
 
     public void ClearPool()
     {
-        for (int i = dialogList.Count - 1; i < 0; i--)
+        /*for (int i = dialogList.Count - 1; i < 0; i--)
         {
             dialogList[i].Clear();
-        }
+        }*/
         foreach (Transform child in screenParent)
         {
-            print(child.name);
             if (child.GetComponent<Dialog>() != null)
             {
 
