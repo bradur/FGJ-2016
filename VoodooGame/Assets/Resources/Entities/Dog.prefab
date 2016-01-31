@@ -196,6 +196,7 @@ MonoBehaviour:
   diggable: 0
   smoothTime: 0.3
   idleMovement: 1
+  corpse: {fileID: 0}
 --- !u!212 &21249936
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -252,8 +253,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc3786e4b63b66d44a0ca1e008de8c09, type: 3}
-  m_Color: {r: 0, g: 0.5955882, b: 0.22591293, a: 1}
+  m_Sprite: {fileID: 21300016, guid: 0c8fa110e2a868e4383160f61e39889c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
@@ -289,7 +290,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.g
@@ -297,8 +298,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
-      value: 0.17241383
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 0c8fa110e2a868e4383160f61e39889c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 109554}

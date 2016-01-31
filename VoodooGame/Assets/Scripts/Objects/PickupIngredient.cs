@@ -42,6 +42,11 @@ public class PickupIngredient : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             HUDManager.main.AddWorldDialogIngredient(ingredient, gameObject);
+            Entity entity = GetComponent<Entity>();
+            if (entity != null)
+            {
+                entity.StopMovement();
+            }
         }
     }
 
@@ -49,8 +54,12 @@ public class PickupIngredient : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("PIM!");
             HUDManager.main.RemoveWorldDialogIngredient(ingredient);
+            Entity entity = GetComponent<Entity>();
+            if (entity != null)
+            {
+                entity.StartMovement();
+            }
         }
     }
 
