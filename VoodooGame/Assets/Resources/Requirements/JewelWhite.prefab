@@ -31,6 +31,8 @@ MonoBehaviour:
   animalState: 0
   gatheredType: 4
   gatheredState: 5
+  sprite: {fileID: 0}
+  description: A precious white stone
 --- !u!224 &22484906
 RectTransform:
   m_ObjectHideFlags: 1
@@ -70,6 +72,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: gatheredState
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: description
+      value: A precious white stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
