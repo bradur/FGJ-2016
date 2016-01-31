@@ -62,7 +62,7 @@ public class InventoryItem : MonoBehaviour {
             }
         }
 
-        //imgComponent.sprite = ingredient.Sprite;
+        imgComponent.sprite = ingredient.Sprite;
         if (ingredient.AnimalType != AnimalType.None) {
             txtComponent.text = ingredient.AnimalType + " " + ingredient.AnimalState;
             if (buyable)

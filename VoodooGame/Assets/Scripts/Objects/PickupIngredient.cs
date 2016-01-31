@@ -24,6 +24,7 @@ public class PickupIngredient : MonoBehaviour
     public void Init(Ingredient ingredient)
     {
         this.ingredient = ingredient;
+        GetComponent<SpriteRenderer>().sprite = ingredient.Sprite;
     }
 
     void Update()
