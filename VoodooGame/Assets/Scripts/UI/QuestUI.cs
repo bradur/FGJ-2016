@@ -99,6 +99,17 @@ public class QuestUI : MonoBehaviour
         return true;
     }
 
+    public List<QuestItem> GetQuestItems()
+    {
+        List<QuestItem> questItems = new List<QuestItem>();
+
+        foreach (QuestItem qItem in questItemContainer)
+        {
+            questItems.Add(qItem);
+        }
+
+        return questItems;
+    }
 
     public void Show()
     {

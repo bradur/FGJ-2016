@@ -56,6 +56,9 @@ public class HUDManager : MonoBehaviour
     private HomeScreen homeScreen;
 
     [SerializeField]
+    private HomeScreen gameoverScreen;
+
+    [SerializeField]
     private AreaTransitionEffect areaTransitionEffect;
 
     [SerializeField]
@@ -379,5 +382,45 @@ public class HUDManager : MonoBehaviour
         {
             ToggleDigMode();
         }
+    }
+
+    public void CheckGameOver()
+    {
+        List<Ingredient> worldIngredients = GameManager.main.ListIngredients();
+        List<QuestItem> requirements = questUI.GetQuestItems();
+
+        bool allOK = true;
+
+        foreach (QuestItem questItem in requirements)
+        {
+            bool itemOK = false;
+
+            foreach (Ingredient ingredient in worldIngredients)
+            {
+                itemOK = itemOK || questItem.Check(ingredient);
+            }
+
+            allOK = allOK && itemOK;
+        }
+
+        if (!allOK)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        gameoverScreen.Show();
+        
+        questUI.Hide();
+        goldDisplaytxt.enabled = false;
+        goldDisplayTitletxt.enabled = false;
+        goldDisplayimg.enabled = false;
+        goldDisplaybg.enabled = false;
+
+        buttonContainer.gameObject.SetActive(false);
+        worldParent.gameObject.SetActive(false);
+        inventoryManager.Hide();
     }
 }

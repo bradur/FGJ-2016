@@ -4,6 +4,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
 
@@ -90,6 +91,32 @@ public class GameManager : MonoBehaviour {
             }
         }
         currentArea.SetActive(true);
+    }
+
+    public List<Ingredient> ListIngredients()
+    {
+        List<Ingredient> worldIngredients = new List<Ingredient>();
+        foreach (GameObject area in areas)
+        {
+            foreach (Transform child in area.transform)
+            {
+                Entity ent = child.GetComponent<Entity>();
+                PickupIngredient pIng = child.GetComponent<PickupIngredient>();
+                if (ent != null)
+                {
+                    worldIngredients.AddRange(ent.GetIngredients());
+                }
+                else if (pIng != null)
+                {
+                    worldIngredients.Add(pIng.Ingredient);
+                }
+                
+            }
+        }
+
+        worldIngredients.AddRange(HUDManager.main.GetInventoryContents().Select(x => x.Ingredient));
+
+        return worldIngredients;
     }
 
     void Start () {

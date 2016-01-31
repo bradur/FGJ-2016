@@ -9,6 +9,8 @@ public class PickupIngredient : MonoBehaviour
     [SerializeField]
     Ingredient ingredient;
 
+    public Ingredient Ingredient { get { return ingredient; } }
+
     void Start()
     {
     }

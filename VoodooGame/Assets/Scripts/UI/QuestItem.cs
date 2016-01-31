@@ -10,6 +10,7 @@ public class QuestItem : MonoBehaviour
 
     [SerializeField]
     private QuestRequirement questRequirement;
+    public QuestRequirement QuestRequirement { get { return questRequirement; } }
 
     [SerializeField]
     private Text txtComponent;

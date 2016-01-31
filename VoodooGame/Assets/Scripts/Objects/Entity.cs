@@ -155,6 +155,8 @@ public class Entity : MonoBehaviour
 
         GameObject corpse = Resources.Load<GameObject>("Corpse") as GameObject;
         Instantiate(corpse, corpsePos, Quaternion.identity);
+
+        HUDManager.main.CheckGameOver();
     }
 
     public void Steal()
@@ -257,5 +259,36 @@ public class Entity : MonoBehaviour
     public void DeleteBuyItem(Ingredient ingredient)
     {
         buyItems.Remove(ingredient);
+    }
+
+    public List<Ingredient> GetIngredients()
+    {
+        List<Ingredient> ingredients = new List<Ingredient>();
+        PickupIngredient pickupIngredient = GetComponent<PickupIngredient>();
+        if (pickupIngredient != null)
+        {
+            ingredients.Add(pickupIngredient.Ingredient);
+        }
+        if (animalType != AnimalType.None)
+        {
+            //killing
+            string meat = animalType.ToString() + "Meat";
+            string blood = animalType.ToString() + "Blood";
+            string bone = animalType.ToString() + "Bone";
+
+            Ingredient meatIngredient = Resources.Load<Ingredient>("Ingredients/" + meat) as Ingredient;
+            Ingredient bloodIngredient = Resources.Load<Ingredient>("Ingredients/" + blood) as Ingredient;
+            Ingredient boneIngredient = Resources.Load<Ingredient>("Ingredients/" + bone) as Ingredient;
+
+            ingredients.Add(meatIngredient);
+            ingredients.Add(bloodIngredient);
+            ingredients.Add(boneIngredient);
+        }
+
+        ingredients.AddRange(stealItems);
+        ingredients.AddRange(digItems);
+        ingredients.AddRange(buyItems);
+
+        return ingredients;
     }
 }
