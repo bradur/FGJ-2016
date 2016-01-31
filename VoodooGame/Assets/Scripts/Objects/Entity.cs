@@ -66,12 +66,14 @@ public class Entity : MonoBehaviour
         Vector3 player = transform.position;
         foreach (Transform child in gameObject.transform)
         {
-            waypoints.Add(child.position);
-
             if (child.name == "Outline")
             {
                 outline = child.gameObject;
                 outline.GetComponent<Renderer>().enabled = false;
+            }
+            else
+            {
+                waypoints.Add(child.position);
             }
         }
 

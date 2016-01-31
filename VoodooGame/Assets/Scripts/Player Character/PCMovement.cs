@@ -46,8 +46,7 @@ public class PCMovement : MonoBehaviour {
             {
                 HUDManager.main.CloseHomeScreen();
                 waitForConfirm = false;
-
-                HUDManager.main.CheckGameOver();
+                StartCoroutine(CheckGameOver());
             }
         }
         if (noMoving)
@@ -68,6 +67,15 @@ public class PCMovement : MonoBehaviour {
                 timer += Time.deltaTime;
             }
         }
+    }
+
+    private IEnumerator CheckGameOver()
+    {
+        yield return new WaitForSeconds(5);
+
+        HUDManager.main.CheckGameOver();
+        yield return null;
+
     }
 
     public void DisallowMovement()
