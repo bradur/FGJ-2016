@@ -27,25 +27,39 @@ public class HomeScreen : MonoBehaviour {
     [SerializeField]
     private Text questStorytxt;
 
+    Quest currentQuest;
+
     int questnum = 0;
+    private bool waitForConfirm = false;
+    private bool waitBeforeActivate = false;
+    private float timer = 0f;
+    private float waitTime = 0.4f;
 
     public void CheckOrStartQuest(bool isComplete)
     {
         if (isComplete)
         {
-            if (questnum > 0)
-            {
-                txtComponent.text = "Quest complete!";
-            }
+            currentQuest = quests[0];
+
             quests.RemoveAt(0);
             if (quests.Count > 0) {
-                questTitletxt.text = quests[0].Title;
-                questStorytxt.text = quests[0].Description;
-                HUDManager.main.SetNextQuest(quests[0]);
+                if (questnum > 0)
+                {
+                    txtComponent.text = "Quest complete! Press Enter to continue.";
+                    questStorytxt.text = currentQuest.EndDescription;
+                    waitForConfirm = true;
+                    GameManager.main.Player.GetComponent<PCMovement>().DisallowConfirm();
+                }
+                else
+                {
+                    NextQuest();
+                }
             }
             else
             {
-                txtComponent.text = "The end.";
+                questTitletxt.text = "The End";
+                questStorytxt.text = "You have mastered the art of voodoo. Now go, my apprentice, and make the world yours!";
+                txtComponent.text = "The end. You're now the voodoo master!";
             }
             questnum++;
         }
@@ -53,6 +67,16 @@ public class HomeScreen : MonoBehaviour {
         {
             txtComponent.text = "Your quest is not yet complete!";
         }
+    }
+
+    public void NextQuest()
+    {
+        questTitletxt.text = quests[0].Title;
+        questStorytxt.text = quests[0].Description;
+        HUDManager.main.SetNextQuest(quests[0]);
+        waitForConfirm = false;
+        waitBeforeActivate = true;
+        txtComponent.text = "";
     }
 
     public void Show(bool isGameOver = false)
@@ -70,10 +94,29 @@ public class HomeScreen : MonoBehaviour {
     }
 
     void Start () {
-    
     }
 
     void Update () {
-    
+        if (waitForConfirm)
+        {
+            if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+            {
+                NextQuest();
+            }
+        }
+        if (waitBeforeActivate)
+        {
+            if (timer > waitTime)
+            {
+                GameManager.main.Player.GetComponent<PCMovement>().AllowConfirm();
+                timer = 0f;
+                waitBeforeActivate = false;
+            }
+            else
+            {
+                timer += Time.deltaTime;
+            }
+            
+        }
     }
 }

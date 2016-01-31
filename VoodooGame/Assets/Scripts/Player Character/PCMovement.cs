@@ -4,7 +4,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class PCMovement : MonoBehaviour {
+public class PCMovement : MonoBehaviour
+{
 
     [SerializeField]
     [Range(0.5f, 5f)]
@@ -19,52 +20,70 @@ public class PCMovement : MonoBehaviour {
 
     private bool waitForConfirm = false;
     private bool noMoving = false;
+    private bool processConfirm = false;
 
     private float waitTime = 0.4f;
     private float timer = 0f;
 
-    void Start () {
+    void Start()
+    {
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        if (!waitForConfirm || !noMoving) { 
+        if (!waitForConfirm || !noMoving)
+        {
             float move_h = Input.GetAxis("Horizontal");
             float move_v = Input.GetAxis("Vertical");
 
             targetSpeed = new Vector2(speed * move_h, speed * move_v);
 
-            rigidBody2D.AddForce(speedFactor* (targetSpeed - rigidBody2D.velocity), ForceMode2D.Impulse);
+            rigidBody2D.AddForce(speedFactor * (targetSpeed - rigidBody2D.velocity), ForceMode2D.Impulse);
         }
     }
 
-    void Update () {
-        if (waitForConfirm)
+    public void AllowConfirm()
+    {
+        processConfirm = true;
+    }
+
+    public void DisallowConfirm()
+    {
+        processConfirm = false;
+    }
+
+    void Update()
+    {
+        if (processConfirm)
         {
-            if (Input.GetKeyUp(GameManager.main.ConfirmKey))
-            {
-                HUDManager.main.CloseHomeScreen();
-                waitForConfirm = false;
-                StartCoroutine(CheckGameOver());
-            }
-        }
-        if (noMoving)
-        {
-            if (timer > waitTime)
+            if (waitForConfirm)
             {
                 if (Input.GetKeyUp(GameManager.main.ConfirmKey))
                 {
-                    Application.LoadLevel(0);
-                }
-                if (Input.GetKeyUp(GameManager.main.ExitKey))
-                {
-                    Application.Quit();
+                    HUDManager.main.CloseHomeScreen();
+                    waitForConfirm = false;
+                    StartCoroutine(CheckGameOver());
                 }
             }
-            else
+            if (noMoving)
             {
-                timer += Time.deltaTime;
+                if (timer > waitTime)
+                {
+                    if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+                    {
+                        Application.LoadLevel(0);
+                    }
+                    if (Input.GetKeyUp(GameManager.main.ExitKey))
+                    {
+                        Application.Quit();
+                    }
+                    timer = 0f;
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                }
             }
         }
     }
