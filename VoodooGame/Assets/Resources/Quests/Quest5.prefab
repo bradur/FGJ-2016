@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 415016}
   - 114: {fileID: 11446056}
   m_Layer: 0
-  m_Name: Quest3
+  m_Name: Quest5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,15 +39,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Stealing from Thieves
-  description: "We have been robbed! I had a shipment of a very rare purple jewel.
-    I paid a lot for it, but it was stolen on the way here! Spirits have told me the
-    thief is on the nearby bar, just west of the town, where all the thugs meet. The
-    guy couldn\u2019t resist spending all his money on booze and it\u2019s currently
-    sleeping it out. Go and steal the purple jewel from him. "
-  endDescription: You smell like booze. Next time, don't drink on the job.
+  title: First kill
+  description: "The villagers have asked me to predict the weather for the upcoming
+    season, they are paying a significant amount of money. In order to do that, we
+    need to see deep into the blood of a powerful animal. That\u2019s what the ancient
+    scripture says\u2026 anyway, just go to the forest and kill a chicken, it will
+    do. Don\u2019t look at me like that, move!"
+  endDescription: Fine enough. I guess this might be JUST enough....
   requirements:
-  - {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e, type: 2}
+  - {fileID: 11445398, guid: 6abf52fff993fc342b59c112c69e4e38, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -62,7 +62,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: requirements.Array.data[0]
       value: 
-      objectReference: {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e,
+      objectReference: {fileID: 11445398, guid: 6abf52fff993fc342b59c112c69e4e38,
         type: 2}
     - target: {fileID: 0}
       propertyPath: requirements.Array.data[1]
@@ -71,19 +71,19 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: description
-      value: "We have been robbed! I had a shipment of a very rare purple jewel. I
-        paid a lot for it, but it was stolen on the way here! Spirits have told me
-        the thief is on the nearby bar, just west of the town, where all the thugs
-        meet. The guy couldn\u2019t resist spending all his money on booze and it\u2019s
-        currently sleeping it out. Go and steal the purple jewel from him. "
+      value: "The villagers have asked me to predict the weather for the upcoming
+        season, they are paying a significant amount of money. In order to do that,
+        we need to see deep into the blood of a powerful animal. That\u2019s what
+        the ancient scripture says\u2026 anyway, just go to the forest and kill a
+        chicken, it will do. Don\u2019t look at me like that, move!"
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: title
-      value: Stealing from Thieves
+      value: First kill
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: endDescription
-      value: You smell like booze. Next time, don't drink on the job.
+      value: Fine enough. I guess this might be JUST enough....
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

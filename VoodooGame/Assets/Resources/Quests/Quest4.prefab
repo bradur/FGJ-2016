@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 415016}
   - 114: {fileID: 11446056}
   m_Layer: 0
-  m_Name: Quest3
+  m_Name: Quest4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,15 +39,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20adfbd8b4c5ba0489cc8815d028a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Stealing from Thieves
-  description: "We have been robbed! I had a shipment of a very rare purple jewel.
-    I paid a lot for it, but it was stolen on the way here! Spirits have told me the
-    thief is on the nearby bar, just west of the town, where all the thugs meet. The
-    guy couldn\u2019t resist spending all his money on booze and it\u2019s currently
-    sleeping it out. Go and steal the purple jewel from him. "
-  endDescription: You smell like booze. Next time, don't drink on the job.
+  title: Useful afterlife
+  description: "Many of our rituals involve using human remains. Let's see how you
+    can deal with fresh human meat in your hands. I don't want you to kill anybody\u2026
+    at least not yet. Fortunately the local graveyard to the south can provide a steady
+    supply of body parts. The gravedigger is a friend of us and he will not bother
+    you.\r\nOld Mrs. Stone died last week, so her body must still be fresh. Go to
+    her tomb, dig her out and bring me some of her meat. "
+  endDescription: You took so long, even if you killed somebody, the meat would be
+    rotten.
   requirements:
-  - {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e, type: 2}
+  - {fileID: 11445398, guid: b05577dcacfb79446b8feb827faf8717, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -62,7 +64,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: requirements.Array.data[0]
       value: 
-      objectReference: {fileID: 11445398, guid: bd97f8d75d697484f87334e73f7ecf1e,
+      objectReference: {fileID: 11445398, guid: b05577dcacfb79446b8feb827faf8717,
         type: 2}
     - target: {fileID: 0}
       propertyPath: requirements.Array.data[1]
@@ -71,19 +73,20 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: description
-      value: "We have been robbed! I had a shipment of a very rare purple jewel. I
-        paid a lot for it, but it was stolen on the way here! Spirits have told me
-        the thief is on the nearby bar, just west of the town, where all the thugs
-        meet. The guy couldn\u2019t resist spending all his money on booze and it\u2019s
-        currently sleeping it out. Go and steal the purple jewel from him. "
+      value: "Many of our rituals involve using human remains. Let's see how you can
+        deal with fresh human meat in your hands. I don't want you to kill anybody\u2026
+        at least not yet. Fortunately the local graveyard to the south can provide
+        a steady supply of body parts. The gravedigger is a friend of us and he will
+        not bother you.\r\nOld Mrs. Stone died last week, so her body must still be
+        fresh. Go to her tomb, dig her out and bring me some of her meat. "
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: title
-      value: Stealing from Thieves
+      value: Useful afterlife
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: endDescription
-      value: You smell like booze. Next time, don't drink on the job.
+      value: You took so long, even if you killed somebody, the meat would be rotten.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

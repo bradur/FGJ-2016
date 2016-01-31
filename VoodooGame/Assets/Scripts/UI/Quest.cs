@@ -12,7 +12,7 @@ public class Quest : MonoBehaviour {
     public string Title { get { return title; } }
 
     [SerializeField]
-    [TextAreaAttribute(10, 4)]
+    [TextAreaAttribute(20, 4)]
     private string description;
     public string Description { get { return description; } }
 
