@@ -76,8 +76,8 @@ public class InventoryItem : MonoBehaviour {
 
     public void Init(Ingredient ingredient, GameObject pickup)
     {
-        Init(ingredient);
         this.pickup = pickup;
+        Init(ingredient);
     }
 
     public void Buy() {
