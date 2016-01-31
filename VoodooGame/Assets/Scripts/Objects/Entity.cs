@@ -56,6 +56,7 @@ public class Entity : MonoBehaviour
     private float maxSpeed = 1.5f;
 
     private GameObject outline;
+    private bool oldIdle = false;
 
     [SerializeField]
     private GameObject corpse;
@@ -172,6 +173,17 @@ public class Entity : MonoBehaviour
         {
             HUDManager.main.AddWorldDialogIngredient(item, gameObject);
         }
+    }
+
+    public void StopMovement()
+    {
+        oldIdle = idleMovement;
+        idleMovement = false;
+    }
+
+    public void StartMovement()
+    {
+        idleMovement = oldIdle;
     }
 
     public void Dig()
