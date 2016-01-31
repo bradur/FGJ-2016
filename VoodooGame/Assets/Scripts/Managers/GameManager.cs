@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour {
     private int nextAreaNumber;
     private Vector3 playerPos;
 
+    public List<Color> ingredientColors;
+
     void Awake()
     {
 

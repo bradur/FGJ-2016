@@ -13,13 +13,17 @@ public class PickupIngredient : MonoBehaviour
 
     void Start()
     {
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        if (ingredient.GatheredState != GatheredState.None && ingredient.GatheredState != GatheredState.Any)
+        {
+            spriteRenderer.color = GetIngredientColor(ingredient);
+        }
     }
 
     public void Init(Ingredient ingredient)
     {
         this.ingredient = ingredient;
-        //SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        //spriteRenderer.sprite = ingredient.Sprite;
     }
 
     void Update()
@@ -47,5 +51,15 @@ public class PickupIngredient : MonoBehaviour
             Debug.Log("PIM!");
             HUDManager.main.RemoveWorldDialogIngredient(ingredient);
         }
+    }
+
+    public Color GetIngredientColor(Ingredient ingredient)
+    {
+        if (ingredient.GatheredState != GatheredState.None && ingredient.GatheredState != GatheredState.Any)
+        {
+            return GameManager.main.ingredientColors[(int)ingredient.GatheredState];
+        }
+
+        return Color.yellow;
     }
 }

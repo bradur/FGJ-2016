@@ -4173,6 +4173,14 @@ MonoBehaviour:
   currentArea: {fileID: 1543664632}
   player: {fileID: 1112042602}
   gold: 15
+  ingredientColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.21379304, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.08965516, a: 1}
+  - {r: 0.7379308, g: 0, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1649560023
 Transform:
   m_ObjectHideFlags: 0
