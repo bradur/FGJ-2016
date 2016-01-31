@@ -27,8 +27,8 @@ public class Ingredient : MonoBehaviour {
     public Sprite Sprite { get { return sprite; } }
 
     [SerializeField]
-    private float cost;
-    public float Cost { get { return cost; } }
+    private int cost;
+    public int Cost { get { return cost; } }
 
     void Start () {
     

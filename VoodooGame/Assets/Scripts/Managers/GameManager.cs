@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour {
     public GameObject Player { get { return player; } }
 
     [SerializeField]
-    private float gold;
-    public float Gold { get { return gold; } set { gold = value; } }
+    private int gold;
+    public int Gold { get { return gold; } set { gold = value; } }
     public bool StealMode { get; set; }
     public bool KillMode { get; set; }
     public bool BuyMode { get; set; }
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start () {
-    
+        HUDManager.main.UpdateGold(gold);
     }
 
     void Update () {

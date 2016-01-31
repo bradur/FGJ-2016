@@ -83,6 +83,7 @@ public class InventoryItem : MonoBehaviour {
     public void Buy() {
         if(GameManager.main.Gold > ingredient.Cost) {
             GameManager.main.Gold -= ingredient.Cost;
+            HUDManager.main.UpdateGold(GameManager.main.Gold);
             HUDManager.main.AddToInventory(ingredient);
             HUDManager.main.RemoveWorldDialogIngredient(ingredient);
             pickup.GetComponent<Entity>().DeleteBuyItem(ingredient);

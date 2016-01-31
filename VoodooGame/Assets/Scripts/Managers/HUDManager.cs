@@ -58,6 +58,15 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private AreaTransitionEffect areaTransitionEffect;
 
+    [SerializeField]
+    private Text goldDisplaytxt;
+    [SerializeField]
+    private Text goldDisplayTitletxt;
+    [SerializeField]
+    private Image goldDisplayimg;
+    [SerializeField]
+    private Image goldDisplaybg;
+
     int num = 0;
 
     void Awake()
@@ -86,12 +95,22 @@ public class HUDManager : MonoBehaviour
 
     }
 
+    public void UpdateGold(int newCount)
+    {
+        goldDisplaytxt.text = newCount + "";
+    }
+
 
     public void OpenHomeScreen()
     {
         homeScreen.Show();
         homeScreen.CheckOrStartQuest(questUI.QuestComplete());
         questUI.Hide();
+        goldDisplaytxt.enabled = false;
+        goldDisplayTitletxt.enabled = false;
+        goldDisplayimg.enabled = false;
+        goldDisplaybg.enabled = false;
+
         buttonContainer.gameObject.SetActive(false);
         worldParent.gameObject.SetActive(false);
         inventoryManager.Hide();
@@ -101,6 +120,12 @@ public class HUDManager : MonoBehaviour
     {
         homeScreen.Hide();
         questUI.Show();
+
+        goldDisplaytxt.enabled = true;
+        goldDisplayTitletxt.enabled = true;
+        goldDisplayimg.enabled = true;
+        goldDisplaybg.enabled = true;
+
         buttonContainer.gameObject.SetActive(true);
         worldParent.gameObject.SetActive(true);
         inventoryManager.Show();
