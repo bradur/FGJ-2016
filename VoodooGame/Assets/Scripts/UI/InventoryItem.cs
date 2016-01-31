@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class InventoryItem : MonoBehaviour {
+public class InventoryItem : MonoBehaviour
+{
 
     [SerializeField]
     private Text txtComponent;
@@ -20,12 +21,28 @@ public class InventoryItem : MonoBehaviour {
 
     private GameObject pickup;
 
-    void Start () {
-    
+    void Start()
+    {
+
+        if (ingredient.GatheredState != GatheredState.None && ingredient.GatheredState != GatheredState.Any)
+        {
+            imgComponent.color = GetIngredientColor(ingredient);
+        }
     }
 
-    void Update () {
-    
+    public Color GetIngredientColor(Ingredient ingredient)
+    {
+        if (ingredient.GatheredState != GatheredState.None && ingredient.GatheredState != GatheredState.Any)
+        {
+            return GameManager.main.ingredientColors[(int)ingredient.GatheredState];
+        }
+
+        return Color.yellow;
+    }
+
+    void Update()
+    {
+
     }
 
     public void Kill()
@@ -55,15 +72,18 @@ public class InventoryItem : MonoBehaviour {
     public void Init(Ingredient ingredient)
     {
         bool buyable = false;
-        if(pickup != null) {
+        if (pickup != null)
+        {
             Entity pickupEntity = pickup.GetComponent<Entity>();
-            if(pickupEntity != null) {
+            if (pickupEntity != null)
+            {
                 buyable = pickupEntity.Buyable;
             }
         }
 
         imgComponent.sprite = ingredient.Sprite;
-        if (ingredient.AnimalType != AnimalType.None) {
+        if (ingredient.AnimalType != AnimalType.None)
+        {
             txtComponent.text = ingredient.AnimalType + " " + ingredient.AnimalState;
             if (buyable)
             {
@@ -87,8 +107,10 @@ public class InventoryItem : MonoBehaviour {
         Init(ingredient);
     }
 
-    public void Buy() {
-        if(GameManager.main.Gold > ingredient.Cost) {
+    public void Buy()
+    {
+        if (GameManager.main.Gold > ingredient.Cost)
+        {
             GameManager.main.Gold -= ingredient.Cost;
             HUDManager.main.UpdateGold(GameManager.main.Gold);
             HUDManager.main.AddToInventory(ingredient);

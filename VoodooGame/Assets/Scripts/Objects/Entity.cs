@@ -57,6 +57,9 @@ public class Entity : MonoBehaviour
 
     private GameObject outline;
 
+    [SerializeField]
+    private GameObject corpse;
+
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -152,11 +155,13 @@ public class Entity : MonoBehaviour
         idleMovement = false;
 
         outline.GetComponent<Renderer>().enabled = true;
-        Vector3 corpsePos = gameObject.transform.position;
+        Vector3 corpsePos = gameObject.transform.localPosition;
         Destroy(gameObject);
 
         GameObject corpse = Resources.Load<GameObject>("Corpse") as GameObject;
-        Instantiate(corpse, corpsePos, Quaternion.identity);
+        
+        corpse = (GameObject)Instantiate(corpse, corpsePos, Quaternion.identity);
+        corpse.transform.SetParent(transform.parent, false);
 
         HUDManager.main.CheckGameOver();
     }
@@ -183,7 +188,6 @@ public class Entity : MonoBehaviour
         Vector3 corpsePos = gameObject.transform.localPosition;
         
 
-        GameObject corpse = Resources.Load<GameObject>("DugGround") as GameObject;
         corpse = (GameObject)Instantiate(corpse, corpsePos, Quaternion.identity) as GameObject;
         corpse.transform.SetParent(transform.parent, false);
 
