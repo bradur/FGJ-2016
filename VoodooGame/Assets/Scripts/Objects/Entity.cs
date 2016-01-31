@@ -134,6 +134,8 @@ public class Entity : MonoBehaviour
         string blood = animalType.ToString() + "Blood";
         string bone = animalType.ToString() + "Bone";
 
+        HUDManager.main.EmptyShop();
+
         Ingredient meatIngredient = Resources.Load<Ingredient>("Ingredients/"+meat) as Ingredient;
         Ingredient bloodIngredient = Resources.Load<Ingredient>("Ingredients/" + blood) as Ingredient;
         Ingredient boneIngredient = Resources.Load<Ingredient>("Ingredients/" + bone) as Ingredient;

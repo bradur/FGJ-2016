@@ -211,6 +211,16 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    public void EmptyShop()
+    {
+        if (currentWorldDialog != null)
+        {
+            currentWorldDialog.Clear();
+            currentWorldDialog.Hide();
+        }
+
+    }
+
     public void AreaTransition()
     {
         areaTransitionEffect.Show();
