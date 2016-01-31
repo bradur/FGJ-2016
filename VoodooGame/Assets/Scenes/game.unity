@@ -2940,7 +2940,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Enter to continue.
+  m_Text: 'Press Enter to restart.
+
+    Press Exit to quit.'
 --- !u!222 &1159395190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4162,6 +4164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupKey: 32
+  exitKey: 27
   confirmKey: 13
   killOutline: {fileID: 2100000, guid: 1402b5067a2bdca40aed794777729b0f, type: 2}
   stealOutline: {fileID: 2100000, guid: c6a652b81a05dbe47ab3b23df4466930, type: 2}
@@ -4173,14 +4176,6 @@ MonoBehaviour:
   currentArea: {fileID: 1543664632}
   player: {fileID: 1112042602}
   gold: 15
-  ingredientColors:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.21379304, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0.08965516, a: 1}
-  - {r: 0.7379308, g: 0, b: 1, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1649560023
 Transform:
   m_ObjectHideFlags: 0

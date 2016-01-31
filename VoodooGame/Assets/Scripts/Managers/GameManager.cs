@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour {
             main = this;
         }
 
-        DontDestroyOnLoad(gameObject);
     }
 
     public void SetNextArea(int areaNumber, Vector3 playerpos)

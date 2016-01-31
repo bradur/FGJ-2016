@@ -20,6 +20,9 @@ public class PCMovement : MonoBehaviour {
     private bool waitForConfirm = false;
     private bool noMoving = false;
 
+    private float waitTime = 0.4f;
+    private float timer = 0f;
+
     void Start () {
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
@@ -49,14 +52,20 @@ public class PCMovement : MonoBehaviour {
         }
         if (noMoving)
         {
-            Debug.Log("test");
-            if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+            if (timer > waitTime)
             {
-                Application.LoadLevel(0);
+                if (Input.GetKeyUp(GameManager.main.ConfirmKey))
+                {
+                    Application.LoadLevel(0);
+                }
+                if (Input.GetKeyUp(GameManager.main.ExitKey))
+                {
+                    Application.Quit();
+                }
             }
-            if (Input.GetKeyUp(GameManager.main.ExitKey))
+            else
             {
-                Application.Quit();
+                timer += Time.deltaTime;
             }
         }
     }

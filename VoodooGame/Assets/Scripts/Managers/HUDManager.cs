@@ -85,7 +85,6 @@ public class HUDManager : MonoBehaviour
             main = this;
         }
 
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -407,6 +406,11 @@ public class HUDManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+
+    public void HideGameOver()
+    {
+        gameoverScreen.Hide();
     }
 
     private void GameOver()
