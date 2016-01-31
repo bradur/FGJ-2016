@@ -37,12 +37,15 @@ public class QuestItem : MonoBehaviour
         txtComponent.text = questRequirement.Description;
     }
 
-    public bool Check(Ingredient ingredient)
+    public bool Check(Ingredient ingredient, bool check = true)
     {
         if (questRequirement.Check(ingredient))
         {
-            checkMark.enabled = true;
-            isChecked = true;
+            if (check)
+            {
+                checkMark.enabled = true;
+                isChecked = true;
+            }
             return true;
         }
         return false;

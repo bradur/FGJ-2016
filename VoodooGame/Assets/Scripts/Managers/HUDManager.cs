@@ -397,7 +397,7 @@ public class HUDManager : MonoBehaviour
 
             foreach (Ingredient ingredient in worldIngredients)
             {
-                itemOK = itemOK || questItem.Check(ingredient);
+                itemOK = itemOK || questItem.Check(ingredient, false);
             }
 
             allOK = allOK && itemOK;
